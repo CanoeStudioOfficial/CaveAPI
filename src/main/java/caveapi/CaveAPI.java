@@ -24,6 +24,8 @@ import java.util.function.BiConsumer;
 public class CaveAPI {
     public static final Logger LOGGER = LogManager.getLogger(Tags.MOD_NAME);
 
+
+
     private static final Map<String, BiConsumer<World, Biome>> caveGenerators = new HashMap<>();
 
     // 默认生成器配置
@@ -46,6 +48,19 @@ public class CaveAPI {
 
         // 触发后生成事件
         MinecraftForge.EVENT_BUS.post(new CaveGenerationEvent.Post(world, chunkX, chunkZ));
+    }
+
+    public static void unregisterCaveGenerator(String id) {
+        caveGenerators.remove(id);
+    }
+
+    // 添加配置访问方法
+    public static int getNoiseOctaves() {
+        return noiseOctaves;
+    }
+
+    public static float getNoiseScale() {
+        return noiseScale;
     }
 
     // 配置方法
