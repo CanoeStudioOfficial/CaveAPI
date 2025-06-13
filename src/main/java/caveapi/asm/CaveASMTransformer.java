@@ -5,6 +5,9 @@ import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.tree.*;
 
 import net.minecraft.launchwrapper.IClassTransformer;
+
+import java.util.Iterator;
+
 import static org.objectweb.asm.Opcodes.*;
 
 public class CaveASMTransformer implements IClassTransformer {
@@ -39,7 +42,8 @@ public class CaveASMTransformer implements IClassTransformer {
         AbstractInsnNode target = null;
 
         // 定位原版洞穴生成调用点
-        for (AbstractInsnNode insn : method.instructions) {
+        for (Iterator<AbstractInsnNode> it = method.instructions.iterator(); it.hasNext();) {
+            AbstractInsnNode insn = it.next();
             if (insn instanceof MethodInsnNode) {
                 MethodInsnNode methodInsn = (MethodInsnNode) insn;
                 if (methodInsn.name.equals("generate") &&

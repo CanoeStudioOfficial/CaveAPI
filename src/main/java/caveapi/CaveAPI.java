@@ -1,10 +1,13 @@
 package caveapi;
 
+import caveapi.caveapi.Tags;
+import caveapi.world.CaveGenerationEvent;
+import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import caveapi.world.gen.CaveGenerator;
+
 import caveapi.world.gen.NoiseCaveGenerator;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
