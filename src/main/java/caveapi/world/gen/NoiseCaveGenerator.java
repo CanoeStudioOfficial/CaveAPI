@@ -21,7 +21,7 @@ public class NoiseCaveGenerator {
                 for (int z = 0; z < 16; z++) {
                     noiseMap[x][y][z] = fractalNoise(
                             chunkX * 16 + x, y, chunkZ * 16 + z,
-                            seed, octaves, frequency
+                            seed, octaves, (float)frequency
                     );
                 }
             }
