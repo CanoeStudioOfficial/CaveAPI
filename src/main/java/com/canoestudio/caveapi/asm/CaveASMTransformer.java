@@ -55,7 +55,7 @@ public class CaveASMTransformer implements IClassTransformer {
         hooks.add(new VarInsnNode(ILOAD, 2));   // chunkZ
         hooks.add(new VarInsnNode(ALOAD, 3));   // primer
         hooks.add(new MethodInsnNode(INVOKESTATIC,
-                "caveapi/core/CaveHooks",
+                "com/canoestudio/caveapi/core/CaveHooks",
                 "handleCaveGeneration",
                 "(Lnet/minecraft/world/World;IILnet/minecraft/world/chunk/ChunkPrimer;)V",
                 false));

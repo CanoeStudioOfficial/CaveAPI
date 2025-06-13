@@ -1,5 +1,8 @@
 package com.canoestudio.caveapi.world.gen;
 
+
+import com.canoestudio.caveapi.core.CaveAPIConfig;
+import com.canoestudio.caveapi.world.gen.ICaveGenerator;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.ChunkPrimer;
@@ -7,14 +10,18 @@ import java.util.Random;
 
 public class LargeCaveGenerator implements ICaveGenerator {
     private static final int MAX_CAVES = 3;
-    private final Random rand = new Random();
-    private long lastSeed = -1;
+    private final Random rand;
+    private final long seed;
+
+    public LargeCaveGenerator(long seed) {
+        this.seed = seed;
+        this.rand = new Random(seed);
+    }
 
     @Override
     public void generate(World world, ChunkPrimer primer, int chunkX, int chunkZ) {
-        if (lastSeed != world.getSeed()) {
-            rand.setSeed(world.getSeed());
-            lastSeed = world.getSeed();
+        if (world.getSeed() != seed) {
+            rand.setSeed(world.getSeed() ^ seed);
         }
 
         int baseX = chunkX << 4;
@@ -22,7 +29,7 @@ public class LargeCaveGenerator implements ICaveGenerator {
 
         for (int i = 0; i < MAX_CAVES; i++) {
             double startX = baseX + rand.nextInt(16);
-            double startY = CaveAPIConfig.MIN_Y + rand.nextInt(CaveAPIConfig.MAX_Y - CaveAPIConfig.MIN_Y);
+            double startY = CaveAPIConfig.minY + rand.nextInt(CaveAPIConfig.maxY - CaveAPIConfig.minY);
             double startZ = baseZ + rand.nextInt(16);
 
             int tunnels = rand.nextInt(3) + 1;
@@ -61,7 +68,7 @@ public class LargeCaveGenerator implements ICaveGenerator {
                     double dx = px - curX;
                     for (int pz = Math.max(minZ, 0); pz <= Math.min(maxZ, 15); pz++) {
                         double dz = pz - curZ;
-                        for (int py = Math.max(minY, CaveAPIConfig.MIN_Y); py <= Math.min(maxY, CaveAPIConfig.MAX_Y - 1); py++) {
+                        for (int py = Math.max(minY, CaveAPIConfig.minY); py <= Math.min(maxY, CaveAPIConfig.maxY - 1); py++) {
                             double dy = py - curY;
 
                             double distSq = dx*dx + dy*dy*2 + dz*dz;
@@ -71,7 +78,7 @@ public class LargeCaveGenerator implements ICaveGenerator {
                                     continue;
                                 }
 
-                                primer.setBlockState(px, py, pz, CaveAPIConfig.CAVE_AIR);
+                                primer.setBlockState(px, py, pz, CaveAPIConfig.getCaveAirState());
                             }
                         }
                     }

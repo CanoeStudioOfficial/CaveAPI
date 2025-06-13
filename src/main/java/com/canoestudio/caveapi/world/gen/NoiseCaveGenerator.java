@@ -1,6 +1,9 @@
 package com.canoestudio.caveapi.world.gen;
 
-import net.minecraft.util.math.MathHelper;
+
+
+import com.canoestudio.caveapi.core.CaveAPIConfig;
+import com.canoestudio.caveapi.world.gen.ICaveGenerator;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.gen.NoiseGeneratorPerlin;
@@ -15,6 +18,7 @@ public class NoiseCaveGenerator implements ICaveGenerator {
         for (int i = 0; i < noiseGens.length; i++) {
             noiseGens[i] = new NoiseGeneratorPerlin(new Random(seed + i), 4);
         }
+        rand.setSeed(seed);
     }
 
     @Override
@@ -23,21 +27,21 @@ public class NoiseCaveGenerator implements ICaveGenerator {
         int baseZ = chunkZ << 4;
 
         for (int x = 0; x < 16; x++) {
-            double dx = (baseX + x) * CaveAPIConfig.NOISE_SCALE_X;
+            double dx = (baseX + x) * CaveAPIConfig.noiseScaleX;
             for (int z = 0; z < 16; z++) {
-                double dz = (baseZ + z) * CaveAPIConfig.NOISE_SCALE_Z;
-                for (int y = CaveAPIConfig.MIN_Y; y < CaveAPIConfig.MAX_Y; y++) {
-                    double dy = y * CaveAPIConfig.NOISE_SCALE_Y;
+                double dz = (baseZ + z) * CaveAPIConfig.noiseScaleZ;
+                for (int y = CaveAPIConfig.minY; y < CaveAPIConfig.maxY; y++) {
+                    double dy = y * CaveAPIConfig.noiseScaleY;
 
                     double noise = calculateCaveNoise(dx, dy, dz);
 
-                    // 大型洞穴 (cheese caves)
+                    // 大型洞穴
                     if (noise > 0.8) {
                         carveLargeCave(primer, x, y, z, noise);
                     }
-                    // 噪声洞穴 (noodle caves)
+                    // 噪声洞穴
                     else if (noise > 0.2) {
-                        carveNoiseCave(primer, x, y, z, noise);
+                        primer.setBlockState(x, y, z, CaveAPIConfig.getCaveAirState());
                     }
                 }
             }
@@ -70,7 +74,7 @@ public class NoiseCaveGenerator implements ICaveGenerator {
                         int pz = z + dz;
 
                         if (px >= 0 && px < 16 &&
-                                py >= CaveAPIConfig.MIN_Y && py < CaveAPIConfig.MAX_Y &&
+                                py >= CaveAPIConfig.minY && py < CaveAPIConfig.maxY &&
                                 pz >= 0 && pz < 16) {
 
                             // 概率性生成支撑柱
@@ -78,32 +82,10 @@ public class NoiseCaveGenerator implements ICaveGenerator {
                                 continue;
                             }
 
-                            primer.setBlockState(px, py, pz, CaveAPIConfig.CAVE_AIR);
+                            primer.setBlockState(px, py, pz, CaveAPIConfig.getCaveAirState());
                         }
                     }
                 }
-            }
-        }
-    }
-
-    private void carveNoiseCave(ChunkPrimer primer, int x, int y, int z, double intensity) {
-        // 简单噪声洞穴 - 单个方块
-        primer.setBlockState(x, y, z, CaveAPIConfig.CAVE_AIR);
-
-        // 20%概率扩展为小隧道
-        if (rand.nextDouble() < 0.2 * intensity) {
-            int dirX = rand.nextInt(3) - 1;
-            int dirY = rand.nextInt(3) - 1;
-            int dirZ = rand.nextInt(3) - 1;
-
-            int length = rand.nextInt(3) + 1;
-
-            for (int i = 0; i < length; i++) {
-                int px = MathHelper.clamp(x + dirX * i, 0, 15);
-                int py = MathHelper.clamp(y + dirY * i, CaveAPIConfig.MIN_Y, CaveAPIConfig.MAX_Y - 1);
-                int pz = MathHelper.clamp(z + dirZ * i, 0, 15);
-
-                primer.setBlockState(px, py, pz, CaveAPIConfig.CAVE_AIR);
             }
         }
     }
