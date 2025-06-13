@@ -17,6 +17,19 @@ public class CaveGenerationEvent extends Event {
         this.chunkZ = chunkZ;
     }
 
+    // 添加公共访问方法
+    public World getWorld() {
+        return world;
+    }
+
+    public int getChunkX() {
+        return chunkX;
+    }
+
+    public int getChunkZ() {
+        return chunkZ;
+    }
+
     public static class Pre extends CaveGenerationEvent {
         public Pre(World world, int chunkX, int chunkZ) {
             super(world, chunkX, chunkZ);
