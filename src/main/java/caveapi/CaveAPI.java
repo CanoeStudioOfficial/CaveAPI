@@ -2,6 +2,9 @@ package caveapi;
 
 import caveapi.caveapi.Tags;
 import caveapi.world.CaveGenerationEvent;
+import caveapi.world.gen.AquiferGenerator;
+import caveapi.world.gen.CheeseCaveGenerator;
+import caveapi.world.gen.NoodleCaveGenerator;
 import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -19,14 +22,8 @@ import java.util.function.BiConsumer;
 
 @Mod(modid = Tags.MOD_ID, name = Tags.MOD_NAME, version = Tags.VERSION)
 public class CaveAPI {
-
     public static final Logger LOGGER = LogManager.getLogger(Tags.MOD_NAME);
 
-    /**
-     * <a href="https://cleanroommc.com/wiki/forge-mod-development/event#overview">
-     *     Take a look at how many FMLStateEvents you can listen to via the @Mod.EventHandler annotation here
-     * </a>
-     */
     private static final Map<String, BiConsumer<World, Biome>> caveGenerators = new HashMap<>();
 
     // 默认生成器配置
@@ -47,9 +44,6 @@ public class CaveAPI {
         Biome biome = world.getBiome(new BlockPos(chunkX << 4, 0, chunkZ << 4));
         caveGenerators.values().forEach(gen -> gen.accept(world, biome));
 
-        // 基础噪声洞穴
-        NoiseCaveGenerator.generate(world, chunkX, chunkZ, noiseOctaves, noiseScale);
-
         // 触发后生成事件
         MinecraftForge.EVENT_BUS.post(new CaveGenerationEvent.Post(world, chunkX, chunkZ));
     }
@@ -60,12 +54,21 @@ public class CaveAPI {
         noiseScale = scale;
     }
 
-
-
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-        LOGGER.info("Hello From {}!", Tags.MOD_NAME);
+        LOGGER.info("Initializing {} - Adding 1.17+ Cave Generators", Tags.MOD_NAME);
 
+        // 注册新的洞穴生成器（修复lambda参数）
+        registerCaveGenerator("noise", (world, biome) ->
+                NoiseCaveGenerator.generate(world, biome, noiseOctaves, (int) noiseScale));
+
+        registerCaveGenerator("cheese", (world, biome) ->
+                CheeseCaveGenerator.generate(world, biome, 0, 0)); // 固定区块坐标
+
+        registerCaveGenerator("noodle", (world, biome) ->
+                NoodleCaveGenerator.generate(world, biome, 0, 0)); // 固定区块坐标
+
+        // 注册含水层生成器事件监听器
+        MinecraftForge.EVENT_BUS.register(new AquiferGenerator());
     }
-
 }
