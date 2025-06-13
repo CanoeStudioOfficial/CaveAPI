@@ -1,5 +1,4 @@
-package com.canoestudio.caveapi;
-
+package caveapi;
 
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -16,9 +15,13 @@ public class CaveAPI {
      *     Take a look at how many FMLStateEvents you can listen to via the @Mod.EventHandler annotation here
      * </a>
      */
+
+
+
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         LOGGER.info("Hello From {}!", Tags.MOD_NAME);
+
     }
 
 }
