@@ -13,8 +13,8 @@ public class RemapEvent {
     public static void updateBiomeID(RegistryEvent.MissingMappings<Biome> event) {
         for (RegistryEvent.MissingMappings.Mapping<Biome> mapping : event.getMappings()) {
             ResourceLocation oldId = mapping.key;
-            String namespace = oldId.getResourceDomain();
-            String path = oldId.getResourcePath();
+            String namespace = oldId.getNamespace();
+            String path = oldId. getPath();
 
             if (namespace.equals("bgcore") || namespace.equals("cavebiomes")) {
                 Biome newBiome = ForgeRegistries.BIOMES.getValue(

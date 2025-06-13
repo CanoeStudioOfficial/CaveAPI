@@ -71,9 +71,10 @@ public class CaveOreFeature extends WorldGenerator {
         double noise;
         for(size = 0; size < maxSize; ++size) {
             float density = (float)size / (float)maxSize;
-            xDensity = MathHelper.lerp(density, startX, endX);
-            yDensity = MathHelper.lerp(density, startY, endY);
-            zDensity = MathHelper.lerp(density, startZ, endZ);
+            // 使用自定义的lerp方法替代MathHelper.lerp
+            xDensity = lerp(density, startX, endX);
+            yDensity = lerp(density, startY, endY);
+            zDensity = lerp(density, startZ, endZ);
             noise = rand.nextDouble() * (double)maxSize / 16.0D;
             double noiseDensity = ((double)(MathHelper.sin((float)Math.PI * density) + 1.0F) * noise + 1.0D) / 2.0D;
             totalDensity[size * 4] = xDensity;
