@@ -1,6 +1,5 @@
 package caveapi.common.world.feature;
 
-import caveapi.common.world.FeatureUtils;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockPos.MutableBlockPos;

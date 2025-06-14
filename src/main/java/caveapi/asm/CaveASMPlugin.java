@@ -5,7 +5,7 @@ import net.minecraftforge.fml.relauncher.IFMLLoadingPlugin.MCVersion;
 import net.minecraftforge.fml.relauncher.IFMLLoadingPlugin.Name;
 import net.minecraftforge.fml.relauncher.IFMLLoadingPlugin.TransformerExclusions;
 
-import javax.annotation.Nullable;
+
 import java.util.Map;
 
 @Name("CaveASMPlugin")
@@ -15,7 +15,14 @@ public class CaveASMPlugin implements IFMLLoadingPlugin {
 
     @Override
     public String[] getASMTransformerClass() {
-        return new String[]{"caveapi.asm.CaveASMTransformer"};
+        return new String[] {
+                "caveapi.asm.CaveBiomesTransformer",
+                CaveBiomesTransformer.class.getName(),
+
+                CarverTransformer.class.getName()
+
+
+        };
     }
 
     @Override
