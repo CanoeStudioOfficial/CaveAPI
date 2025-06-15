@@ -22,11 +22,7 @@
  ******************************************************************************/
 package org.hjson;
 
-import java.io.IOException;
-import java.io.Reader;
-import java.io.Serializable;
-import java.io.StringWriter;
-import java.io.Writer;
+import java.io.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;

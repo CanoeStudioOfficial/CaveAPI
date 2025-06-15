@@ -22,11 +22,11 @@
  ******************************************************************************/
 package org.hjson;
 
+import org.hjson.JsonObject.Member;
+
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.*;
-
-import org.hjson.JsonObject.Member;
 
 /**
  * Represents a JSON object, a set of name/value pairs, where the names are strings and the values
