@@ -13,21 +13,21 @@ public class CaveRegistry {
     }
 
     /**
-     * 为指定的生物群系注册洞穴生成器
+     * Register a cave generator for a specified biome
      *
-     * @param biomeNames 生物群系列表（注册名格式：modid:biome_name）
-     * @param generator  自定义洞穴生成器实现
+     * @param biomeNames  list of biomes (registration format: modid:biome_name)
+     * @param generator custom cave generator implementation
      */
     public void registerGenerator(String[] biomeNames, CaveGenerator generator) {
         manager.registerGenerator(biomeNames, generator);
     }
 
     /**
-     * 注册条件性后备生成器（当目标群系附近存在特定邻居群系时生效）
+     * Register a conditional backup generator (effective when specific neighboring biomes are near the target biome)
      *
-     * @param targetBiome   需要后备规则的主生物群系
-     * @param neighborBiomes 触发条件所需的邻近生物群系列表
-     * @param generator     后备洞穴生成器
+     * @param targetBiome   the main biome requiring a backup rule
+     * @param neighborBiomes the list of nearby biomes needed to trigger the condition
+     * @param generator     the backup cave generator
      */
     public void registerFallbackRule(String targetBiome, List<String> neighborBiomes, CaveGenerator generator) {
         manager.addFallbackRule(targetBiome, neighborBiomes, generator);
