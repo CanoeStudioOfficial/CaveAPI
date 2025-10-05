@@ -1,9 +1,8 @@
 package caveapi.api;
 
-import caveapi.api.CaveGenerator;
 import caveapi.world.CaveGeneratorManager;
 
-import java.util.*;
+import java.util.List;
 
 public class CaveRegistry {
     private final CaveGeneratorManager manager;
