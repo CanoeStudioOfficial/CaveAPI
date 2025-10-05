@@ -1,6 +1,5 @@
 package org.caveapi.model;
 
-import org.caveapi.data.DecoratorSettings;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Builder.Default;
@@ -8,8 +7,12 @@ import lombok.experimental.FieldDefaults;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+import org.caveapi.data.DecoratorSettings;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 import java.util.function.Predicate;
 
 import static org.caveapi.util.CommonMethods.map;

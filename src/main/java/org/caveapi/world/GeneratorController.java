@@ -1,10 +1,12 @@
 package org.caveapi.world;
 
+import lombok.Builder;
+import net.minecraft.world.World;
+import net.minecraft.world.WorldProvider;
+import net.minecraft.world.biome.Biome;
+import net.minecraftforge.common.DimensionManager;
 import org.caveapi.config.CavePreset;
 import org.caveapi.config.ConfigFile;
-import com.personthecat.cavegenerator.data.*;
-import com.personthecat.cavegenerator.world.feature.*;
-import com.personthecat.cavegenerator.world.generator.*;
 import org.caveapi.data.*;
 import org.caveapi.world.feature.PillarGenerator;
 import org.caveapi.world.feature.StalactiteGenerator;
@@ -12,13 +14,11 @@ import org.caveapi.world.feature.StructureGenerator;
 import org.caveapi.world.feature.WorldContext;
 import org.caveapi.world.generator.*;
 import org.caveapi.world.roads.RoadGenerator;
-import lombok.Builder;
-import net.minecraft.world.World;
-import net.minecraft.world.WorldProvider;
-import net.minecraft.world.biome.Biome;
-import net.minecraftforge.common.DimensionManager;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import static org.caveapi.util.CommonMethods.map;
 

@@ -1,21 +1,24 @@
 package org.caveapi.world.feature;
 
+import lombok.extern.log4j.Log4j2;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
+import net.minecraft.world.WorldProvider;
+import net.minecraft.world.biome.Biome;
+import net.minecraft.world.chunk.IChunkProvider;
+import net.minecraft.world.gen.IChunkGenerator;
+import net.minecraftforge.common.DimensionManager;
+import net.minecraftforge.fml.common.IWorldGenerator;
 import org.caveapi.Main;
 import org.caveapi.config.ConfigFile;
 import org.caveapi.world.GeneratorController;
 import org.caveapi.world.HeightMapLocator;
 import org.caveapi.world.data.ChunkStaging;
-import lombok.extern.log4j.Log4j2;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
-import net.minecraft.world.WorldProvider;
-import net.minecraft.world.chunk.IChunkProvider;
-import net.minecraft.world.gen.IChunkGenerator;
-import net.minecraft.world.biome.Biome;
-import net.minecraftforge.fml.common.IWorldGenerator;
-import net.minecraftforge.common.DimensionManager;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Random;
 
 @Log4j2
 public class FeatureCaveHook implements IWorldGenerator {

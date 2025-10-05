@@ -1,23 +1,23 @@
 package org.caveapi.config;
 
+import lombok.extern.log4j.Log4j2;
 import org.caveapi.CaveInit;
 import org.caveapi.util.HjsonTools;
-import lombok.extern.log4j.Log4j2;
 import org.hjson.JsonObject;
 import org.hjson.JsonValue;
 import org.hjson.ParseException;
 
-import java.io.*;
-import java.util.*;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.Reader;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 
-import static org.caveapi.util.CommonMethods.empty;
-import static org.caveapi.util.CommonMethods.extension;
-import static org.caveapi.util.CommonMethods.f;
-import static org.caveapi.util.CommonMethods.full;
-import static org.caveapi.util.CommonMethods.noExtension;
-import static org.caveapi.util.CommonMethods.runEx;
-import static org.caveapi.util.CommonMethods.runExF;
 import static org.caveapi.io.SafeFileIO.listFiles;
+import static org.caveapi.util.CommonMethods.*;
 
 /**
  * This class is responsible for initiating all of the raw JSON-related operations

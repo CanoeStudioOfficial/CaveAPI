@@ -1,9 +1,9 @@
 package org.caveapi.world.generator;
 
-import org.caveapi.data.ConditionSettings;
-import org.caveapi.model.Conditions;
 import net.minecraft.world.World;
 import org.apache.commons.lang3.tuple.Pair;
+import org.caveapi.data.ConditionSettings;
+import org.caveapi.model.Conditions;
 
 import java.lang.ref.WeakReference;
 import java.util.List;

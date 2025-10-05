@@ -1,12 +1,5 @@
 package org.caveapi.world.feature;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.Map;
-import java.util.Optional;
-
-import org.caveapi.Main;
 import lombok.extern.log4j.Log4j2;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.nbt.CompressedStreamTools;
@@ -19,9 +12,18 @@ import net.minecraft.world.gen.structure.template.PlacementSettings;
 import net.minecraft.world.gen.structure.template.Template;
 import net.minecraft.world.gen.structure.template.TemplateManager;
 import net.minecraftforge.fml.common.Loader;
+import org.caveapi.Main;
 import org.caveapi.util.Result;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Map;
+import java.util.Optional;
+
+import static org.caveapi.io.SafeFileIO.ensureDirExists;
+import static org.caveapi.io.SafeFileIO.listFiles;
 import static org.caveapi.util.CommonMethods.*;
-import static org.caveapi.io.SafeFileIO.*;
 
 @Log4j2
 public class StructureSpawner {

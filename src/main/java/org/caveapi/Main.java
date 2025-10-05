@@ -1,18 +1,6 @@
 package org.caveapi;
 
 import caveapi.caveapi.Tags;
-import org.caveapi.commands.CommandCave;
-import org.caveapi.config.CavePreset;
-import org.caveapi.io.JarFiles;
-import org.caveapi.noise.CachedNoiseHelper;
-import com.personthecat.cavegenerator.world.*;
-import org.caveapi.world.GeneratorController;
-import org.caveapi.world.data.WorldDataHandler;
-import org.caveapi.world.event.DisablePopulateChunkEvent;
-import org.caveapi.world.event.DisableVanillaStoneGen;
-import org.caveapi.world.event.ReplaceVanillaCaveGen;
-import org.caveapi.world.feature.FeatureCaveHook;
-import org.caveapi.world.feature.StructureSpawner;
 import lombok.extern.log4j.Log4j2;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.structure.template.Template;
@@ -25,16 +13,27 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.event.FMLServerStoppingEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import org.caveapi.commands.CommandCave;
+import org.caveapi.config.CavePreset;
+import org.caveapi.io.JarFiles;
+import org.caveapi.noise.CachedNoiseHelper;
+import org.caveapi.world.GeneratorController;
+import org.caveapi.world.data.WorldDataHandler;
+import org.caveapi.world.event.DisablePopulateChunkEvent;
+import org.caveapi.world.event.DisableVanillaStoneGen;
+import org.caveapi.world.event.ReplaceVanillaCaveGen;
+import org.caveapi.world.feature.FeatureCaveHook;
+import org.caveapi.world.feature.StructureSpawner;
 
 import java.util.Collections;
-import java.util.Map;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.TreeMap;
 
 @Mod(
     modid = Tags.MOD_ID,
-    name = "Cave Generator",
-    version = "1.1",
+    name = Tags.MOD_NAME,
+    version = Tags.VERSION,
     dependencies = "after:worleycaves;",
     acceptableRemoteVersions = "*"
 )

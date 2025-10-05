@@ -1,5 +1,11 @@
 package org.caveapi.world.generator;
 
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.init.Blocks;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
+import net.minecraft.world.World;
+import net.minecraft.world.chunk.ChunkPrimer;
 import org.caveapi.config.ConfigFile;
 import org.caveapi.data.ConditionSettings;
 import org.caveapi.data.DecoratorSettings;
@@ -8,12 +14,6 @@ import org.caveapi.model.PrimerData;
 import org.caveapi.util.PositionFlags;
 import org.caveapi.util.XoRoShiRo;
 import org.caveapi.world.BiomeSearch;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.init.Blocks;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.World;
-import net.minecraft.world.chunk.ChunkPrimer;
 
 import java.util.ArrayList;
 import java.util.List;

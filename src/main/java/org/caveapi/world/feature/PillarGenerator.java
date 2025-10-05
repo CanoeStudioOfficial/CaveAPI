@@ -1,7 +1,5 @@
 package org.caveapi.world.feature;
 
-import org.caveapi.data.PillarSettings;
-import org.caveapi.model.Range;
 import net.minecraft.block.BlockStairs;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
@@ -9,6 +7,8 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
+import org.caveapi.data.PillarSettings;
+import org.caveapi.model.Range;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Random;

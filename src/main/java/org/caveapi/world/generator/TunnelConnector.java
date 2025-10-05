@@ -1,10 +1,10 @@
 package org.caveapi.world.generator;
 
+import net.minecraft.world.World;
+import net.minecraft.world.chunk.ChunkPrimer;
 import org.caveapi.data.TunnelSettings;
 import org.caveapi.model.PrimerData;
 import org.caveapi.util.XoRoShiRo;
-import net.minecraft.world.World;
-import net.minecraft.world.chunk.ChunkPrimer;
 
 import java.util.Random;
 

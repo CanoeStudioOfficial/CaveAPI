@@ -1,6 +1,5 @@
 package org.caveapi.util;
 
-import com.personthecat.cavegenerator.model.*;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.Mirror;
@@ -22,14 +21,7 @@ import java.io.Writer;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static org.caveapi.util.CommonMethods.extension;
-import static org.caveapi.util.CommonMethods.find;
-import static org.caveapi.util.CommonMethods.getBiome;
-import static org.caveapi.util.CommonMethods.getBiomes;
-import static org.caveapi.util.CommonMethods.getBiomeType;
-import static org.caveapi.util.CommonMethods.getBlockState;
-import static org.caveapi.util.CommonMethods.runEx;
-import static org.caveapi.util.CommonMethods.runExF;
+import static org.caveapi.util.CommonMethods.*;
 
 @SuppressWarnings("WeakerAccess")
 public class HjsonTools {

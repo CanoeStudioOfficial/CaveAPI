@@ -1,15 +1,15 @@
 package org.caveapi.world.feature;
 
-import org.caveapi.data.StructureSettings;
-import org.caveapi.model.Range;
 import lombok.extern.log4j.Log4j2;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.util.Rotation;
 import net.minecraft.util.Mirror;
+import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.structure.template.Template;
+import org.caveapi.data.StructureSettings;
+import org.caveapi.model.Range;
 
 import java.util.Optional;
 import java.util.Random;

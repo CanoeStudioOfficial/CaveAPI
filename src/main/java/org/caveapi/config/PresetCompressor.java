@@ -6,7 +6,8 @@ import org.hjson.JsonValue;
 
 import java.util.Optional;
 
-import static org.caveapi.util.CommonMethods.*;
+import static org.caveapi.util.CommonMethods.empty;
+import static org.caveapi.util.CommonMethods.full;
 
 public class PresetCompressor {
 
