@@ -1,11 +1,11 @@
-package com.personthecat.cavegenerator.util;
+package org.caveapi.util;
 
 import lombok.AllArgsConstructor;
 
 import java.util.Optional;
 
-import static com.personthecat.cavegenerator.util.CommonMethods.empty;
-import static com.personthecat.cavegenerator.util.CommonMethods.full;
+import static org.caveapi.util.CommonMethods.empty;
+import static org.caveapi.util.CommonMethods.full;
 
 @AllArgsConstructor
 @SuppressWarnings("OptionalUsedAsFieldOrParameterType")

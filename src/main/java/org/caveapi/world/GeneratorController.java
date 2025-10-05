@@ -1,13 +1,18 @@
-package com.personthecat.cavegenerator.world;
+package org.caveapi.world;
 
-import com.personthecat.cavegenerator.config.CavePreset;
-import com.personthecat.cavegenerator.config.ConfigFile;
+import org.caveapi.config.CavePreset;
+import org.caveapi.config.ConfigFile;
 import com.personthecat.cavegenerator.data.*;
 import com.personthecat.cavegenerator.world.feature.*;
 import com.personthecat.cavegenerator.world.generator.*;
-import com.personthecat.cavegenerator.world.roads.RoadGenerator;
+import org.caveapi.data.*;
+import org.caveapi.world.feature.PillarGenerator;
+import org.caveapi.world.feature.StalactiteGenerator;
+import org.caveapi.world.feature.StructureGenerator;
+import org.caveapi.world.feature.WorldContext;
+import org.caveapi.world.generator.*;
+import org.caveapi.world.roads.RoadGenerator;
 import lombok.Builder;
-import net.minecraft.init.Biomes;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.biome.Biome;
@@ -15,7 +20,7 @@ import net.minecraftforge.common.DimensionManager;
 
 import java.util.*;
 
-import static com.personthecat.cavegenerator.util.CommonMethods.map;
+import static org.caveapi.util.CommonMethods.map;
 
 // Please forgive me, Cat, for what I have done here.
 @Builder

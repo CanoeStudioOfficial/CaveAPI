@@ -1,7 +1,7 @@
-package com.personthecat.cavegenerator.config;
+package org.caveapi.config;
 
-import com.personthecat.cavegenerator.CaveInit;
-import com.personthecat.cavegenerator.util.PathComponent;
+import org.caveapi.CaveInit;
+import org.caveapi.util.PathComponent;
 import org.apache.commons.lang3.CharUtils;
 import org.hjson.JsonObject;
 import org.hjson.JsonValue;
@@ -13,9 +13,9 @@ import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.personthecat.cavegenerator.util.CommonMethods.*;
-import static com.personthecat.cavegenerator.io.SafeFileIO.*;
-import static com.personthecat.cavegenerator.util.HjsonTools.*;
+import static org.caveapi.util.CommonMethods.*;
+import static org.caveapi.io.SafeFileIO.*;
+import static org.caveapi.util.HjsonTools.*;
 
 /** Used for merging JsonObject paths between json files. */
 public class PresetCombiner {

@@ -1,11 +1,10 @@
-package com.personthecat.cavegenerator.world.generator;
+package org.caveapi.world.generator;
 
-import com.personthecat.cavegenerator.data.ClusterSettings;
-import com.personthecat.cavegenerator.model.Conditions;
-import com.personthecat.cavegenerator.util.MultiValueIdentityMap;
-import com.personthecat.cavegenerator.util.XoRoShiRo;
-import com.personthecat.cavegenerator.world.BiomeCache;
-import com.personthecat.cavegenerator.world.RandomChunkSelector;
+import org.caveapi.data.ClusterSettings;
+import org.caveapi.model.Conditions;
+import org.caveapi.util.MultiValueIdentityMap;
+import org.caveapi.util.XoRoShiRo;
+import org.caveapi.world.RandomChunkSelector;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;

@@ -1,7 +1,7 @@
-package com.personthecat.cavegenerator.model;
+package org.caveapi.model;
 
-import com.personthecat.cavegenerator.data.PondSettings;
-import com.personthecat.cavegenerator.noise.DummyGenerator;
+import org.caveapi.data.PondSettings;
+import org.caveapi.noise.DummyGenerator;
 import fastnoise.FastNoise;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.world.World;

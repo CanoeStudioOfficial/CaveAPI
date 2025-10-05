@@ -1,7 +1,7 @@
-package com.personthecat.cavegenerator.config;
+package org.caveapi.config;
 
-import com.personthecat.cavegenerator.CaveInit;
-import com.personthecat.cavegenerator.util.HjsonTools;
+import org.caveapi.CaveInit;
+import org.caveapi.util.HjsonTools;
 import lombok.extern.log4j.Log4j2;
 import org.hjson.JsonObject;
 import org.hjson.JsonValue;
@@ -10,14 +10,14 @@ import org.hjson.ParseException;
 import java.io.*;
 import java.util.*;
 
-import static com.personthecat.cavegenerator.util.CommonMethods.empty;
-import static com.personthecat.cavegenerator.util.CommonMethods.extension;
-import static com.personthecat.cavegenerator.util.CommonMethods.f;
-import static com.personthecat.cavegenerator.util.CommonMethods.full;
-import static com.personthecat.cavegenerator.util.CommonMethods.noExtension;
-import static com.personthecat.cavegenerator.util.CommonMethods.runEx;
-import static com.personthecat.cavegenerator.util.CommonMethods.runExF;
-import static com.personthecat.cavegenerator.io.SafeFileIO.listFiles;
+import static org.caveapi.util.CommonMethods.empty;
+import static org.caveapi.util.CommonMethods.extension;
+import static org.caveapi.util.CommonMethods.f;
+import static org.caveapi.util.CommonMethods.full;
+import static org.caveapi.util.CommonMethods.noExtension;
+import static org.caveapi.util.CommonMethods.runEx;
+import static org.caveapi.util.CommonMethods.runExF;
+import static org.caveapi.io.SafeFileIO.listFiles;
 
 /**
  * This class is responsible for initiating all of the raw JSON-related operations

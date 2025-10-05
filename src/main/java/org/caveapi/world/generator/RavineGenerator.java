@@ -1,8 +1,8 @@
-package com.personthecat.cavegenerator.world.generator;
+package org.caveapi.world.generator;
 
-import com.personthecat.cavegenerator.data.RavineSettings;
-import com.personthecat.cavegenerator.model.PrimerData;
-import com.personthecat.cavegenerator.util.XoRoShiRo;
+import org.caveapi.data.RavineSettings;
+import org.caveapi.model.PrimerData;
+import org.caveapi.util.XoRoShiRo;
 import fastnoise.FastNoise;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;

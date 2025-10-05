@@ -1,7 +1,7 @@
-package com.personthecat.cavegenerator.config;
+package org.caveapi.config;
 
-import com.personthecat.cavegenerator.util.Calculator;
-import com.personthecat.cavegenerator.util.HjsonTools;
+import org.caveapi.util.Calculator;
+import org.caveapi.util.HjsonTools;
 import org.apache.commons.lang3.ArrayUtils;
 import org.hjson.JsonArray;
 import org.hjson.JsonObject;
@@ -12,15 +12,15 @@ import java.util.*;
 import java.util.function.Consumer;
 import java.util.regex.Pattern;
 
-import static com.personthecat.cavegenerator.util.HjsonTools.asOrToArray;
-import static com.personthecat.cavegenerator.util.HjsonTools.getArray;
-import static com.personthecat.cavegenerator.util.HjsonTools.getObject;
-import static com.personthecat.cavegenerator.util.HjsonTools.getObjectOrNew;
-import static com.personthecat.cavegenerator.util.HjsonTools.setOrAdd;
-import static com.personthecat.cavegenerator.util.CommonMethods.empty;
-import static com.personthecat.cavegenerator.util.CommonMethods.full;
-import static com.personthecat.cavegenerator.util.CommonMethods.runEx;
-import static com.personthecat.cavegenerator.util.CommonMethods.runExF;
+import static org.caveapi.util.HjsonTools.asOrToArray;
+import static org.caveapi.util.HjsonTools.getArray;
+import static org.caveapi.util.HjsonTools.getObject;
+import static org.caveapi.util.HjsonTools.getObjectOrNew;
+import static org.caveapi.util.HjsonTools.setOrAdd;
+import static org.caveapi.util.CommonMethods.empty;
+import static org.caveapi.util.CommonMethods.full;
+import static org.caveapi.util.CommonMethods.runEx;
+import static org.caveapi.util.CommonMethods.runExF;
 
 public class PresetExpander {
 

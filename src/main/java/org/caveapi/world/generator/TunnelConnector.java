@@ -1,8 +1,8 @@
-package com.personthecat.cavegenerator.world.generator;
+package org.caveapi.world.generator;
 
-import com.personthecat.cavegenerator.data.TunnelSettings;
-import com.personthecat.cavegenerator.model.PrimerData;
-import com.personthecat.cavegenerator.util.XoRoShiRo;
+import org.caveapi.data.TunnelSettings;
+import org.caveapi.model.PrimerData;
+import org.caveapi.util.XoRoShiRo;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.ChunkPrimer;
 

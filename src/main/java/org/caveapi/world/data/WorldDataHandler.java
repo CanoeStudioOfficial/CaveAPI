@@ -1,6 +1,6 @@
-package com.personthecat.cavegenerator.world.data;
+package org.caveapi.world.data;
 
-import com.personthecat.cavegenerator.Main;
+import org.caveapi.Main;
 import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumFacing;

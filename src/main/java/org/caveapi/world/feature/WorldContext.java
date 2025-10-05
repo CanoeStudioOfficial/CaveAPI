@@ -1,10 +1,9 @@
-package com.personthecat.cavegenerator.world.feature;
+package org.caveapi.world.feature;
 
-import com.personthecat.cavegenerator.world.GeneratorController;
+import org.caveapi.world.GeneratorController;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 

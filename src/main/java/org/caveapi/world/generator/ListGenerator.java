@@ -1,7 +1,7 @@
-package com.personthecat.cavegenerator.world.generator;
+package org.caveapi.world.generator;
 
-import com.personthecat.cavegenerator.data.ConditionSettings;
-import com.personthecat.cavegenerator.model.Conditions;
+import org.caveapi.data.ConditionSettings;
+import org.caveapi.model.Conditions;
 import net.minecraft.world.World;
 import org.apache.commons.lang3.tuple.Pair;
 
@@ -11,7 +11,7 @@ import java.util.Objects;
 import java.util.function.BiConsumer;
 import java.util.function.Function;
 
-import static com.personthecat.cavegenerator.util.CommonMethods.map;
+import static org.caveapi.util.CommonMethods.map;
 
 public abstract class ListGenerator<T> {
 

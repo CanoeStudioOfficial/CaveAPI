@@ -1,4 +1,4 @@
-package com.personthecat.cavegenerator.world.generator;
+package org.caveapi.world.generator;
 
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.ChunkPrimer;

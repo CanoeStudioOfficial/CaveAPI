@@ -1,11 +1,10 @@
-package com.personthecat.cavegenerator.world.generator;
+package org.caveapi.world.generator;
 
-import com.personthecat.cavegenerator.util.XoRoShiRo;
-import com.personthecat.cavegenerator.world.BiomeSearch;
+import org.caveapi.util.XoRoShiRo;
+import org.caveapi.world.BiomeSearch;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.ChunkPrimer;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 

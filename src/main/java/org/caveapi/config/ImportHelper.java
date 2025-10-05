@@ -1,7 +1,7 @@
-package com.personthecat.cavegenerator.config;
+package org.caveapi.config;
 
-import com.personthecat.cavegenerator.CaveInit;
-import com.personthecat.cavegenerator.util.HjsonTools;
+import org.caveapi.CaveInit;
+import org.caveapi.util.HjsonTools;
 import org.hjson.JsonArray;
 import org.hjson.JsonObject;
 import org.hjson.JsonValue;
@@ -9,11 +9,11 @@ import org.hjson.JsonValue;
 import java.io.File;
 import java.util.*;
 
-import static com.personthecat.cavegenerator.util.CommonMethods.empty;
-import static com.personthecat.cavegenerator.util.CommonMethods.find;
-import static com.personthecat.cavegenerator.util.CommonMethods.full;
-import static com.personthecat.cavegenerator.util.CommonMethods.runExF;
-import static com.personthecat.cavegenerator.io.SafeFileIO.getFileRecursive;
+import static org.caveapi.util.CommonMethods.empty;
+import static org.caveapi.util.CommonMethods.find;
+import static org.caveapi.util.CommonMethods.full;
+import static org.caveapi.util.CommonMethods.runExF;
+import static org.caveapi.io.SafeFileIO.getFileRecursive;
 
 public class ImportHelper {
 

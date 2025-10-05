@@ -1,4 +1,4 @@
-package com.personthecat.cavegenerator.util;
+package org.caveapi.util;
 
 import java.io.File;
 import java.lang.reflect.Array;

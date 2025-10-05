@@ -1,4 +1,4 @@
-package com.personthecat.cavegenerator.config;
+package org.caveapi.config;
 
 import org.hjson.JsonArray;
 import org.hjson.JsonObject;
@@ -6,7 +6,7 @@ import org.hjson.JsonValue;
 
 import java.util.Optional;
 
-import static com.personthecat.cavegenerator.util.CommonMethods.*;
+import static org.caveapi.util.CommonMethods.*;
 
 public class PresetCompressor {
 

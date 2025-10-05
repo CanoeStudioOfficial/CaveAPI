@@ -1,10 +1,7 @@
-package com.personthecat.cavegenerator.world.data;
+package org.caveapi.world.data;
 
-import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.Chunk;
-
-import java.util.concurrent.ConcurrentHashMap;
 
 public class ChunkStaging {
 

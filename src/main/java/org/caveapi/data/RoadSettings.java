@@ -1,10 +1,8 @@
-package com.personthecat.cavegenerator.data;
+package org.caveapi.data;
 
-import com.personthecat.cavegenerator.config.CavePreset;
-import com.personthecat.cavegenerator.model.BlockCheck;
-import com.personthecat.cavegenerator.model.Direction;
-import com.personthecat.cavegenerator.model.Range;
-import com.personthecat.cavegenerator.util.HjsonMapper;
+import org.caveapi.config.CavePreset;
+import org.caveapi.model.Range;
+import org.caveapi.util.HjsonMapper;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Builder.Default;
@@ -12,8 +10,6 @@ import lombok.experimental.FieldDefaults;
 import lombok.experimental.FieldNameConstants;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.gen.structure.template.PlacementSettings;
 import org.hjson.JsonObject;
 
 import java.util.Collections;

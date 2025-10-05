@@ -1,14 +1,13 @@
-package com.personthecat.cavegenerator.config;
+package org.caveapi.config;
 
 import org.hjson.JsonArray;
 import org.hjson.JsonObject;
 import org.hjson.JsonValue;
 
 import java.io.File;
-import java.util.List;
 import java.util.regex.Pattern;
 
-import static com.personthecat.cavegenerator.util.CommonMethods.*;
+import static org.caveapi.util.CommonMethods.*;
 
 public class SyntaxHelper {
 

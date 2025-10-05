@@ -1,19 +1,14 @@
-package com.personthecat.cavegenerator.world.generator;
+package org.caveapi.world.generator;
 
-import com.personthecat.cavegenerator.data.ConditionSettings;
-import com.personthecat.cavegenerator.model.Conditions;
-import com.personthecat.cavegenerator.world.BiomeSearch;
+import org.caveapi.data.ConditionSettings;
+import org.caveapi.model.Conditions;
+import org.caveapi.world.BiomeSearch;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.BiomeProvider;
-import net.minecraft.world.chunk.ChunkPrimer;
 
 import java.lang.ref.WeakReference;
 import java.util.Objects;
-import java.util.Random;
 
 public abstract class BasicGenerator {
 

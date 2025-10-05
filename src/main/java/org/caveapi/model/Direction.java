@@ -1,4 +1,4 @@
-package com.personthecat.cavegenerator.model;
+package org.caveapi.model;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -8,7 +8,7 @@ import lombok.experimental.FieldDefaults;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
-import static com.personthecat.cavegenerator.util.CommonMethods.*;
+import static org.caveapi.util.CommonMethods.*;
 
 public enum Direction {
     UP,

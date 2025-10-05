@@ -1,14 +1,11 @@
-package com.personthecat.cavegenerator.world.roads;
+package org.caveapi.world.roads;
 
-import com.personthecat.cavegenerator.data.RoadSettings;
-import com.personthecat.cavegenerator.data.StructureSettings;
-import com.personthecat.cavegenerator.model.Conditions;
-import com.personthecat.cavegenerator.world.data.WorldData;
-import com.personthecat.cavegenerator.world.data.WorldDataHandler;
-import com.personthecat.cavegenerator.world.feature.StructureSpawner;
+import org.caveapi.data.RoadSettings;
+import org.caveapi.model.Conditions;
+import org.caveapi.world.data.WorldData;
+import org.caveapi.world.data.WorldDataHandler;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.Chunk;
 

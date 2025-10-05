@@ -1,8 +1,7 @@
-package com.personthecat.cavegenerator.world.feature;
+package org.caveapi.world.feature;
 
-import com.personthecat.cavegenerator.data.PillarSettings;
-import com.personthecat.cavegenerator.model.Range;
-import com.personthecat.cavegenerator.world.BiomeSearch;
+import org.caveapi.data.PillarSettings;
+import org.caveapi.model.Range;
 import net.minecraft.block.BlockStairs;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;

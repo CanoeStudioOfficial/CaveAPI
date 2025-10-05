@@ -1,6 +1,6 @@
-package com.personthecat.cavegenerator.model;
+package org.caveapi.model;
 
-import com.personthecat.cavegenerator.data.DecoratorSettings;
+import org.caveapi.data.DecoratorSettings;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Builder.Default;
@@ -12,7 +12,7 @@ import net.minecraft.world.World;
 import java.util.*;
 import java.util.function.Predicate;
 
-import static com.personthecat.cavegenerator.util.CommonMethods.map;
+import static org.caveapi.util.CommonMethods.map;
 
 @Builder(toBuilder = true)
 @FieldDefaults(level = AccessLevel.PUBLIC, makeFinal = true)

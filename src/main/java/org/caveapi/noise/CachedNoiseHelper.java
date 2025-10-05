@@ -1,4 +1,4 @@
-package com.personthecat.cavegenerator.noise;
+package org.caveapi.noise;
 
 import java.util.Arrays;
 import java.util.Map;

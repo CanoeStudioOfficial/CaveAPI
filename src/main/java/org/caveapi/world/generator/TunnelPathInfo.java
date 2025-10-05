@@ -1,9 +1,9 @@
-package com.personthecat.cavegenerator.world.generator;
+package org.caveapi.world.generator;
 
-import com.personthecat.cavegenerator.data.RavineSettings;
-import com.personthecat.cavegenerator.data.TunnelSettings;
-import com.personthecat.cavegenerator.model.ScalableFloat;
-import com.personthecat.cavegenerator.model.PrimerData;
+import org.caveapi.data.RavineSettings;
+import org.caveapi.data.TunnelSettings;
+import org.caveapi.model.ScalableFloat;
+import org.caveapi.model.PrimerData;
 import net.minecraft.util.math.MathHelper;
 
 import java.util.Random;

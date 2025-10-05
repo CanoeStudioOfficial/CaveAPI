@@ -1,16 +1,12 @@
-package com.personthecat.cavegenerator.world.generator;
+package org.caveapi.world.generator;
 
-import com.personthecat.cavegenerator.data.LayerSettings;
-import com.personthecat.cavegenerator.world.BiomeSearch;
-import com.personthecat.cavegenerator.world.LayersBiomeArray;
-import net.minecraft.util.math.BlockPos;
+import org.caveapi.data.LayerSettings;
+import org.caveapi.world.LayersBiomeArray;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.chunk.ChunkPrimer;
 
 import java.util.HashMap;
 import java.util.List;
-import java.util.Random;
 
 public class LayerGenerator extends BasicGenerator {
 

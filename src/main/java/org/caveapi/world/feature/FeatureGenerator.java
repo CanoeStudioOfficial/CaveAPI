@@ -1,8 +1,8 @@
-package com.personthecat.cavegenerator.world.feature;
+package org.caveapi.world.feature;
 
-import com.personthecat.cavegenerator.data.ConditionSettings;
-import com.personthecat.cavegenerator.model.BlockCheck;
-import com.personthecat.cavegenerator.model.Conditions;
+import org.caveapi.data.ConditionSettings;
+import org.caveapi.model.BlockCheck;
+import org.caveapi.model.Conditions;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Random;
 
-import static com.personthecat.cavegenerator.util.CommonMethods.numBetween;
+import static org.caveapi.util.CommonMethods.numBetween;
 
 public abstract class FeatureGenerator {
 

@@ -1,4 +1,4 @@
-package com.personthecat.cavegenerator.noise;
+package org.caveapi.noise;
 
 import fastnoise.FastNoise;
 import lombok.AllArgsConstructor;

@@ -1,10 +1,10 @@
-package com.personthecat.cavegenerator.data;
+package org.caveapi.data;
 
-import com.personthecat.cavegenerator.model.Range;
-import com.personthecat.cavegenerator.noise.CachedNoiseGenerator;
-import com.personthecat.cavegenerator.noise.DummyGenerator;
-import com.personthecat.cavegenerator.util.HjsonMapper;
-import com.personthecat.cavegenerator.util.XoRoShiRo;
+import org.caveapi.model.Range;
+import org.caveapi.noise.CachedNoiseGenerator;
+import org.caveapi.noise.DummyGenerator;
+import org.caveapi.util.HjsonMapper;
+import org.caveapi.util.XoRoShiRo;
 import fastnoise.FastNoise;
 import fastnoise.FastNoise.NoiseType;
 import lombok.AccessLevel;
@@ -18,8 +18,8 @@ import org.hjson.JsonObject;
 import java.util.Optional;
 import java.util.Random;
 
-import static com.personthecat.cavegenerator.util.CommonMethods.empty;
-import static com.personthecat.cavegenerator.util.CommonMethods.full;
+import static org.caveapi.util.CommonMethods.empty;
+import static org.caveapi.util.CommonMethods.full;
 
 /**
  * Contains all of the generic info related to spawning noise-based features in the

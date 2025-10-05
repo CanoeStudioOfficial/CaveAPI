@@ -1,20 +1,19 @@
-package com.personthecat.cavegenerator.model;
+package org.caveapi.model;
 
-import com.personthecat.cavegenerator.data.CavernSettings;
-import com.personthecat.cavegenerator.util.HjsonMapper;
+import org.caveapi.data.CavernSettings;
+import org.caveapi.util.HjsonMapper;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.experimental.FieldDefaults;
 import lombok.experimental.FieldNameConstants;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.util.math.BlockPos;
 import org.hjson.JsonArray;
 import org.hjson.JsonObject;
 import org.hjson.JsonValue;
 
 import java.util.List;
 
-import static com.personthecat.cavegenerator.util.CommonMethods.runExF;
+import static org.caveapi.util.CommonMethods.runExF;
 
 @Builder
 @FieldNameConstants

@@ -1,4 +1,4 @@
-package com.personthecat.cavegenerator.world;
+package org.caveapi.world;
 
 public class RandomChunkSelector {
 

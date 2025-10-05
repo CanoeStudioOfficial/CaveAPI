@@ -1,7 +1,7 @@
-package com.personthecat.cavegenerator.model;
+package org.caveapi.model;
 
-import com.personthecat.cavegenerator.data.StructureSettings;
-import com.personthecat.cavegenerator.util.HjsonMapper;
+import org.caveapi.data.StructureSettings;
+import org.caveapi.util.HjsonMapper;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.experimental.FieldDefaults;
@@ -14,7 +14,7 @@ import org.hjson.JsonValue;
 
 import java.util.List;
 
-import static com.personthecat.cavegenerator.util.CommonMethods.runExF;
+import static org.caveapi.util.CommonMethods.runExF;
 
 @Builder
 @FieldNameConstants

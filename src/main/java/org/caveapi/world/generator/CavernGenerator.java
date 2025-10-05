@@ -1,27 +1,21 @@
-package com.personthecat.cavegenerator.world.generator;
+package org.caveapi.world.generator;
 
-import com.personthecat.cavegenerator.config.ConfigFile;
-import com.personthecat.cavegenerator.data.CavernSettings;
-import com.personthecat.cavegenerator.data.NoiseMapSettings;
-import com.personthecat.cavegenerator.data.NoiseSettings;
-import com.personthecat.cavegenerator.model.ArchaeneWallFixed;
-import com.personthecat.cavegenerator.model.ConfiguredCaveBlock;
-import com.personthecat.cavegenerator.model.Range;
-import com.personthecat.cavegenerator.noise.DummyGenerator;
-import com.personthecat.cavegenerator.util.PositionFlags;
-import com.personthecat.cavegenerator.world.BiomeSearch;
+import org.caveapi.config.ConfigFile;
+import org.caveapi.data.CavernSettings;
+import org.caveapi.data.NoiseSettings;
+import org.caveapi.model.ConfiguredCaveBlock;
+import org.caveapi.model.Range;
+import org.caveapi.noise.DummyGenerator;
+import org.caveapi.util.PositionFlags;
+import org.caveapi.world.BiomeSearch;
 import fastnoise.FastNoise;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import net.minecraft.init.Blocks;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldProvider;
-import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.util.math.Vec3i;
 
 import java.util.ArrayList;
 import java.util.Arrays;

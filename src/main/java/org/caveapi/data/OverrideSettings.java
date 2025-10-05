@@ -1,10 +1,10 @@
-package com.personthecat.cavegenerator.data;
+package org.caveapi.data;
 
-import com.personthecat.cavegenerator.config.CavePreset;
-import com.personthecat.cavegenerator.config.FieldHistory;
-import com.personthecat.cavegenerator.model.Range;
-import com.personthecat.cavegenerator.util.HjsonMapper;
-import com.personthecat.cavegenerator.util.HjsonTools;
+import org.caveapi.config.CavePreset;
+import org.caveapi.config.FieldHistory;
+import org.caveapi.model.Range;
+import org.caveapi.util.HjsonMapper;
+import org.caveapi.util.HjsonTools;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Builder.Default;
@@ -20,8 +20,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
-import static com.personthecat.cavegenerator.util.CommonMethods.empty;
-import static com.personthecat.cavegenerator.util.CommonMethods.full;
+import static org.caveapi.util.CommonMethods.empty;
+import static org.caveapi.util.CommonMethods.full;
 
 /** Any settings that can be written at the top level to serve as default values. */
 @Builder

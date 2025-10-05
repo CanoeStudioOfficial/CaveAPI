@@ -1,14 +1,15 @@
-package com.personthecat.cavegenerator.commands;
+package org.caveapi.commands;
 
-import com.personthecat.cavegenerator.CaveInit;
-import com.personthecat.cavegenerator.Main;
+import org.caveapi.CaveInit;
+import org.caveapi.Main;
 import com.personthecat.cavegenerator.config.*;
-import com.personthecat.cavegenerator.noise.CachedNoiseHelper;
-import com.personthecat.cavegenerator.util.Calculator;
-import com.personthecat.cavegenerator.util.CaveLinter;
-import com.personthecat.cavegenerator.util.HjsonTools;
-import com.personthecat.cavegenerator.world.GeneratorController;
-import com.personthecat.cavegenerator.world.feature.StructureSpawner;
+import org.caveapi.config.*;
+import org.caveapi.noise.CachedNoiseHelper;
+import org.caveapi.util.Calculator;
+import org.caveapi.util.CaveLinter;
+import org.caveapi.util.HjsonTools;
+import org.caveapi.world.GeneratorController;
+import org.caveapi.world.feature.StructureSpawner;
 import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.settings.GameSettings;
@@ -42,24 +43,24 @@ import java.io.IOException;
 import java.util.*;
 import java.util.List;
 
-import static com.personthecat.cavegenerator.io.SafeFileIO.backup;
-import static com.personthecat.cavegenerator.io.SafeFileIO.ensureDirExists;
-import static com.personthecat.cavegenerator.io.SafeFileIO.rename;
-import static com.personthecat.cavegenerator.io.SafeFileIO.copy;
-import static com.personthecat.cavegenerator.io.SafeFileIO.fileExists;
-import static com.personthecat.cavegenerator.io.SafeFileIO.listFiles;
-import static com.personthecat.cavegenerator.util.CommonMethods.empty;
-import static com.personthecat.cavegenerator.util.CommonMethods.extension;
-import static com.personthecat.cavegenerator.util.CommonMethods.f;
-import static com.personthecat.cavegenerator.util.CommonMethods.full;
-import static com.personthecat.cavegenerator.util.CommonMethods.noExtension;
-import static com.personthecat.cavegenerator.util.CommonMethods.nullable;
-import static com.personthecat.cavegenerator.util.CommonMethods.runEx;
-import static com.personthecat.cavegenerator.util.CommonMethods.runExF;
-import static com.personthecat.cavegenerator.util.CommonMethods.toArray;
-import static com.personthecat.cavegenerator.util.HjsonTools.getBool;
-import static com.personthecat.cavegenerator.util.HjsonTools.FORMATTER;
-import static com.personthecat.cavegenerator.util.HjsonTools.writeJson;
+import static org.caveapi.io.SafeFileIO.backup;
+import static org.caveapi.io.SafeFileIO.ensureDirExists;
+import static org.caveapi.io.SafeFileIO.rename;
+import static org.caveapi.io.SafeFileIO.copy;
+import static org.caveapi.io.SafeFileIO.fileExists;
+import static org.caveapi.io.SafeFileIO.listFiles;
+import static org.caveapi.util.CommonMethods.empty;
+import static org.caveapi.util.CommonMethods.extension;
+import static org.caveapi.util.CommonMethods.f;
+import static org.caveapi.util.CommonMethods.full;
+import static org.caveapi.util.CommonMethods.noExtension;
+import static org.caveapi.util.CommonMethods.nullable;
+import static org.caveapi.util.CommonMethods.runEx;
+import static org.caveapi.util.CommonMethods.runExF;
+import static org.caveapi.util.CommonMethods.toArray;
+import static org.caveapi.util.HjsonTools.getBool;
+import static org.caveapi.util.HjsonTools.FORMATTER;
+import static org.caveapi.util.HjsonTools.writeJson;
 
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault

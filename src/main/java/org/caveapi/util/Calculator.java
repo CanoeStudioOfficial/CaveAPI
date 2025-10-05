@@ -1,10 +1,10 @@
-package com.personthecat.cavegenerator.util;
+package org.caveapi.util;
 
 import java.util.EmptyStackException;
 import java.util.Stack;
 import java.util.regex.Pattern;
 
-import static com.personthecat.cavegenerator.util.CommonMethods.runExF;
+import static org.caveapi.util.CommonMethods.runExF;
 
 /** An expression evaluator used for generating numeric field data in presets. */
 public class Calculator {

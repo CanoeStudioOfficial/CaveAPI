@@ -1,4 +1,4 @@
-package com.personthecat.cavegenerator.util;
+package org.caveapi.util;
 
 @FunctionalInterface
 public interface PositionPredicate {

@@ -1,24 +1,22 @@
-package com.personthecat.cavegenerator.io;
+package org.caveapi.io;
 
-import com.personthecat.cavegenerator.CaveInit;
-import com.personthecat.cavegenerator.util.Result;
+import org.caveapi.util.Result;
 
 import javax.annotation.CheckReturnValue;
 import java.io.*;
 import java.nio.file.Files;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static com.personthecat.cavegenerator.util.CommonMethods.empty;
-import static com.personthecat.cavegenerator.util.CommonMethods.full;
-import static com.personthecat.cavegenerator.util.CommonMethods.nullable;
-import static com.personthecat.cavegenerator.util.CommonMethods.runEx;
-import static com.personthecat.cavegenerator.util.CommonMethods.runExF;
-import static com.personthecat.cavegenerator.CaveInit.BACKUP_DIR;
+import static org.caveapi.util.CommonMethods.empty;
+import static org.caveapi.util.CommonMethods.full;
+import static org.caveapi.util.CommonMethods.nullable;
+import static org.caveapi.util.CommonMethods.runEx;
+import static org.caveapi.util.CommonMethods.runExF;
+import static org.caveapi.CaveInit.BACKUP_DIR;
 
 /** A few potentially controversial ways for handling errors in file io. */
 public class SafeFileIO {

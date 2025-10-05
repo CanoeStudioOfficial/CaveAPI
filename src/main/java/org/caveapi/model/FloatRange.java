@@ -1,11 +1,11 @@
-package com.personthecat.cavegenerator.model;
+package org.caveapi.model;
 
 import lombok.EqualsAndHashCode;
 
 import java.util.Random;
 
-import static com.personthecat.cavegenerator.util.CommonMethods.f;
-import static com.personthecat.cavegenerator.util.CommonMethods.numBetween;
+import static org.caveapi.util.CommonMethods.f;
+import static org.caveapi.util.CommonMethods.numBetween;
 
 @EqualsAndHashCode
 public class FloatRange {
