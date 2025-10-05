@@ -1,20 +1,18 @@
 package org.caveapi.world.generator;
 
+import fastnoise.FastNoise;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
+import net.minecraft.world.chunk.ChunkPrimer;
 import org.caveapi.config.ConfigFile;
 import org.caveapi.data.BurrowSettings;
 import org.caveapi.model.Range;
 import org.caveapi.util.PositionFlags;
 import org.caveapi.world.BiomeSearch;
-import fastnoise.FastNoise;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
-import net.minecraft.world.chunk.ChunkPrimer;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-
-import static java.lang.Math.max;
 
 public class BurrowGenerator extends WorldCarver implements TunnelSocket {
 

@@ -1,12 +1,12 @@
 package org.caveapi.model;
 
-import org.caveapi.data.CavernSettings;
-import org.caveapi.util.HjsonMapper;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.experimental.FieldDefaults;
 import lombok.experimental.FieldNameConstants;
 import net.minecraft.block.state.IBlockState;
+import org.caveapi.data.CavernSettings;
+import org.caveapi.util.HjsonMapper;
 import org.hjson.JsonArray;
 import org.hjson.JsonObject;
 import org.hjson.JsonValue;

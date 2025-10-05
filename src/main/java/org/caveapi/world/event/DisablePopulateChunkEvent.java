@@ -1,10 +1,10 @@
 package org.caveapi.world.event;
 
-import org.caveapi.config.ConfigFile;
 import net.minecraftforge.event.terraingen.PopulateChunkEvent;
 import net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType;
 import net.minecraftforge.fml.common.eventhandler.Event;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import org.caveapi.config.ConfigFile;
 
 public class DisablePopulateChunkEvent {
 

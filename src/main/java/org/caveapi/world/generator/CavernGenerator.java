@@ -1,5 +1,13 @@
 package org.caveapi.world.generator;
 
+import fastnoise.FastNoise;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.extern.log4j.Log4j2;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.init.Blocks;
+import net.minecraft.world.World;
+import net.minecraft.world.chunk.ChunkPrimer;
 import org.caveapi.config.ConfigFile;
 import org.caveapi.data.CavernSettings;
 import org.caveapi.data.NoiseSettings;
@@ -8,14 +16,6 @@ import org.caveapi.model.Range;
 import org.caveapi.noise.DummyGenerator;
 import org.caveapi.util.PositionFlags;
 import org.caveapi.world.BiomeSearch;
-import fastnoise.FastNoise;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.extern.log4j.Log4j2;
-import net.minecraft.init.Blocks;
-import net.minecraft.world.World;
-import net.minecraft.world.chunk.ChunkPrimer;
-import net.minecraft.block.state.IBlockState;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -1,8 +1,5 @@
 package org.caveapi.data;
 
-import org.caveapi.config.CavePreset;
-import org.caveapi.model.Range;
-import org.caveapi.util.HjsonMapper;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Builder.Default;
@@ -13,9 +10,14 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import org.apache.commons.lang3.tuple.Pair;
+import org.caveapi.config.CavePreset;
+import org.caveapi.model.Range;
+import org.caveapi.util.HjsonMapper;
 import org.hjson.JsonObject;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 import static org.caveapi.util.CommonMethods.map;

@@ -9,11 +9,8 @@ import org.hjson.JsonValue;
 import java.io.File;
 import java.util.*;
 
-import static org.caveapi.util.CommonMethods.empty;
-import static org.caveapi.util.CommonMethods.find;
-import static org.caveapi.util.CommonMethods.full;
-import static org.caveapi.util.CommonMethods.runExF;
 import static org.caveapi.io.SafeFileIO.getFileRecursive;
+import static org.caveapi.util.CommonMethods.*;
 
 public class ImportHelper {
 

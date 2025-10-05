@@ -1,26 +1,22 @@
 package org.caveapi.config;
 
+import org.apache.commons.lang3.ArrayUtils;
 import org.caveapi.util.Calculator;
 import org.caveapi.util.HjsonTools;
-import org.apache.commons.lang3.ArrayUtils;
 import org.hjson.JsonArray;
 import org.hjson.JsonObject;
 import org.hjson.JsonValue;
 
 import java.io.File;
-import java.util.*;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Optional;
+import java.util.Set;
 import java.util.function.Consumer;
 import java.util.regex.Pattern;
 
-import static org.caveapi.util.HjsonTools.asOrToArray;
-import static org.caveapi.util.HjsonTools.getArray;
-import static org.caveapi.util.HjsonTools.getObject;
-import static org.caveapi.util.HjsonTools.getObjectOrNew;
-import static org.caveapi.util.HjsonTools.setOrAdd;
-import static org.caveapi.util.CommonMethods.empty;
-import static org.caveapi.util.CommonMethods.full;
-import static org.caveapi.util.CommonMethods.runEx;
-import static org.caveapi.util.CommonMethods.runExF;
+import static org.caveapi.util.CommonMethods.*;
+import static org.caveapi.util.HjsonTools.*;
 
 public class PresetExpander {
 

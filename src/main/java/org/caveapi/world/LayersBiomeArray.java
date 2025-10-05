@@ -1,6 +1,5 @@
 package org.caveapi.world;
 
-import com.personthecat.cavegenerator.world.generator.*;
 import net.minecraft.world.biome.Biome;
 import org.caveapi.world.generator.PrimerContext;
 

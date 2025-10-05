@@ -1,20 +1,16 @@
 package org.caveapi.util;
 
-import org.caveapi.model.Direction;
-import org.caveapi.model.FloatRange;
-import org.caveapi.model.Range;
-import org.caveapi.model.ScalableFloat;
-import org.caveapi.data.WallDecoratorSettings.Placement;
-import fastnoise.FastNoise.CellularDistanceFunction;
-import fastnoise.FastNoise.CellularReturnType;
-import fastnoise.FastNoise.FractalType;
-import fastnoise.FastNoise.Interp;
-import fastnoise.FastNoise.NoiseType;
+import fastnoise.FastNoise.*;
 import lombok.AllArgsConstructor;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.structure.template.PlacementSettings;
+import org.caveapi.data.WallDecoratorSettings.Placement;
+import org.caveapi.model.Direction;
+import org.caveapi.model.FloatRange;
+import org.caveapi.model.Range;
+import org.caveapi.model.ScalableFloat;
 import org.hjson.JsonObject;
 import org.hjson.JsonValue;
 

@@ -8,7 +8,9 @@ import lombok.experimental.FieldDefaults;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
-import static org.caveapi.util.CommonMethods.*;
+
+import static org.caveapi.util.CommonMethods.find;
+import static org.caveapi.util.CommonMethods.runExF;
 
 public enum Direction {
     UP,

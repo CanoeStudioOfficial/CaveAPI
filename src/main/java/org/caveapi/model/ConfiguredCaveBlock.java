@@ -1,9 +1,9 @@
 package org.caveapi.model;
 
-import org.caveapi.data.CaveBlockSettings;
-import org.caveapi.noise.DummyGenerator;
 import fastnoise.FastNoise;
 import net.minecraft.world.World;
+import org.caveapi.data.CaveBlockSettings;
+import org.caveapi.noise.DummyGenerator;
 
 public class ConfiguredCaveBlock {
 

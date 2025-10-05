@@ -1,9 +1,9 @@
 package org.caveapi.world.event;
 
-import org.caveapi.config.ConfigFile;
 import net.minecraftforge.event.terraingen.OreGenEvent.GenerateMinable;
 import net.minecraftforge.fml.common.eventhandler.Event.Result;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import org.caveapi.config.ConfigFile;
 
 public class DisableVanillaStoneGen {
 

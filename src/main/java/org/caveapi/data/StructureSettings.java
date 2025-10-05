@@ -1,10 +1,5 @@
 package org.caveapi.data;
 
-import org.caveapi.config.CavePreset;
-import org.caveapi.model.BlockCheck;
-import org.caveapi.model.Direction;
-import org.caveapi.model.Range;
-import org.caveapi.util.HjsonMapper;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Builder.Default;
@@ -14,6 +9,11 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.gen.structure.template.PlacementSettings;
+import org.caveapi.config.CavePreset;
+import org.caveapi.model.BlockCheck;
+import org.caveapi.model.Direction;
+import org.caveapi.model.Range;
+import org.caveapi.util.HjsonMapper;
 import org.hjson.JsonObject;
 
 import java.util.Collections;

@@ -1,8 +1,8 @@
 package org.caveapi.world.feature;
 
-import org.caveapi.world.GeneratorController;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
+import org.caveapi.world.GeneratorController;
 
 import java.util.List;
 import java.util.Random;

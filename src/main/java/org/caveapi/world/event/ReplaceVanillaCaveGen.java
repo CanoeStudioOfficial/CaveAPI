@@ -1,11 +1,11 @@
 package org.caveapi.world.event;
 
-import org.caveapi.config.ConfigFile;
-import org.caveapi.world.generator.NoGeneration;
-import org.caveapi.world.generator.EarlyCaveHook;
 import net.minecraftforge.event.terraingen.InitMapGenEvent;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import org.caveapi.config.ConfigFile;
+import org.caveapi.world.generator.EarlyCaveHook;
+import org.caveapi.world.generator.NoGeneration;
 
 public class ReplaceVanillaCaveGen {
 

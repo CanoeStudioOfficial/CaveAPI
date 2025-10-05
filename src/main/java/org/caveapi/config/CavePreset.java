@@ -1,13 +1,12 @@
 package org.caveapi.config;
 
-import com.personthecat.cavegenerator.data.*;
-import org.caveapi.data.*;
-import org.caveapi.util.HjsonMapper;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Builder.Default;
 import lombok.experimental.FieldDefaults;
 import lombok.experimental.FieldNameConstants;
+import org.caveapi.data.*;
+import org.caveapi.util.HjsonMapper;
 import org.hjson.JsonObject;
 
 import java.util.Collections;

@@ -1,20 +1,16 @@
 package org.caveapi.io;
 
+import lombok.extern.log4j.Log4j2;
 import org.caveapi.CaveInit;
 import org.caveapi.Main;
 import org.caveapi.config.PresetExpander;
 import org.caveapi.world.feature.StructureSpawner;
-import lombok.extern.log4j.Log4j2;
 import org.hjson.JsonObject;
 import org.hjson.JsonValue;
 
 import java.io.*;
 
-import static org.caveapi.io.SafeFileIO.copyStream;
-import static org.caveapi.io.SafeFileIO.ensureDirExists;
-import static org.caveapi.io.SafeFileIO.fileExists;
-import static org.caveapi.io.SafeFileIO.getRequiredResource;
-import static org.caveapi.io.SafeFileIO.mkdirs;
+import static org.caveapi.io.SafeFileIO.*;
 import static org.caveapi.util.CommonMethods.runEx;
 
 @Log4j2

@@ -1,13 +1,12 @@
 package org.caveapi.config;
 
 import com.google.common.collect.ImmutableMap;
-import com.personthecat.cavegenerator.data.*;
+import lombok.extern.log4j.Log4j2;
+import org.apache.commons.lang3.tuple.Pair;
 import org.caveapi.data.*;
 import org.caveapi.io.JarFiles;
 import org.caveapi.util.HjsonTools;
 import org.caveapi.util.Result;
-import lombok.extern.log4j.Log4j2;
-import org.apache.commons.lang3.tuple.Pair;
 import org.hjson.JsonArray;
 import org.hjson.JsonObject;
 import org.hjson.JsonValue;
@@ -19,12 +18,7 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static org.caveapi.util.HjsonTools.getArrayOrNew;
-import static org.caveapi.util.HjsonTools.getIntOr;
-import static org.caveapi.util.HjsonTools.getRegularObjects;
-import static org.caveapi.util.HjsonTools.getObject;
-import static org.caveapi.util.HjsonTools.setOrAdd;
-import static org.caveapi.util.HjsonTools.writeJson;
+import static org.caveapi.util.HjsonTools.*;
 
 /**
  * This is a temporary class designed to extend compatibility of deprecated fields and notations

@@ -1,18 +1,18 @@
 package org.caveapi.world.generator;
 
-import org.caveapi.data.ConditionSettings;
-import org.caveapi.data.DecoratorSettings;
-import org.caveapi.data.PondSettings;
-import com.personthecat.cavegenerator.model.*;
-import org.caveapi.model.*;
-import org.caveapi.util.PositionFlags;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.ChunkPrimer;
+import org.caveapi.data.ConditionSettings;
+import org.caveapi.data.DecoratorSettings;
+import org.caveapi.data.PondSettings;
+import org.caveapi.model.*;
+import org.caveapi.util.PositionFlags;
 
-import java.util.*;
+import java.util.List;
+import java.util.Random;
 
 /** An early world generator supporting cave block replacements and surface decorations. */
 public abstract class WorldCarver extends BasicGenerator {

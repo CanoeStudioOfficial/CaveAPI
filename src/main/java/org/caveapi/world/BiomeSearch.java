@@ -1,7 +1,5 @@
 package org.caveapi.world;
 
-import org.caveapi.config.ConfigFile;
-import org.caveapi.util.Lazy;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import net.minecraft.util.math.BlockPos;
@@ -9,6 +7,8 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeProvider;
+import org.caveapi.config.ConfigFile;
+import org.caveapi.util.Lazy;
 
 import java.util.function.Predicate;
 

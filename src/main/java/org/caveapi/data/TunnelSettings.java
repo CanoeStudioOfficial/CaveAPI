@@ -1,21 +1,19 @@
 package org.caveapi.data;
 
-import org.caveapi.config.CavePreset;
-import org.caveapi.model.Range;
-import org.caveapi.model.ScalableFloat;
-import org.caveapi.util.HjsonMapper;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Builder.Default;
 import lombok.experimental.FieldDefaults;
 import lombok.experimental.FieldNameConstants;
+import org.caveapi.config.CavePreset;
+import org.caveapi.model.Range;
+import org.caveapi.model.ScalableFloat;
+import org.caveapi.util.HjsonMapper;
 import org.hjson.JsonObject;
 
 import java.util.Optional;
 
-import static org.caveapi.util.CommonMethods.empty;
-import static org.caveapi.util.CommonMethods.full;
-import static org.caveapi.util.CommonMethods.invert;
+import static org.caveapi.util.CommonMethods.*;
 
 @Builder
 @FieldNameConstants

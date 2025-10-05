@@ -1,6 +1,5 @@
 package org.caveapi.data;
 
-import org.caveapi.util.HjsonMapper;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Builder.Default;
@@ -8,6 +7,7 @@ import lombok.experimental.FieldDefaults;
 import lombok.experimental.FieldNameConstants;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
+import org.caveapi.util.HjsonMapper;
 import org.hjson.JsonObject;
 
 import java.util.Arrays;

@@ -1,8 +1,8 @@
 package org.caveapi.config;
 
+import org.apache.commons.lang3.CharUtils;
 import org.caveapi.CaveInit;
 import org.caveapi.util.PathComponent;
-import org.apache.commons.lang3.CharUtils;
 import org.hjson.JsonObject;
 import org.hjson.JsonValue;
 
@@ -13,8 +13,9 @@ import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.caveapi.util.CommonMethods.*;
-import static org.caveapi.io.SafeFileIO.*;
+import static org.caveapi.io.SafeFileIO.backup;
+import static org.caveapi.util.CommonMethods.runEx;
+import static org.caveapi.util.CommonMethods.runExF;
 import static org.caveapi.util.HjsonTools.*;
 
 /** Used for merging JsonObject paths between json files. */

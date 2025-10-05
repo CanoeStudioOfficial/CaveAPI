@@ -1,7 +1,5 @@
 package org.caveapi.model;
 
-import org.caveapi.data.ConditionSettings;
-import org.caveapi.noise.DummyGenerator;
 import fastnoise.FastNoise;
 import it.unimi.dsi.fastutil.ints.IntArrayList;
 import it.unimi.dsi.fastutil.ints.IntList;
@@ -12,6 +10,8 @@ import lombok.Builder.Default;
 import lombok.experimental.FieldDefaults;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
+import org.caveapi.data.ConditionSettings;
+import org.caveapi.noise.DummyGenerator;
 
 import java.util.ArrayList;
 import java.util.Collections;

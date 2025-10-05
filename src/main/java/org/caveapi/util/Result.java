@@ -3,7 +3,7 @@ package org.caveapi.util;
 import java.util.Optional;
 import java.util.function.Consumer;
 
-import static org.caveapi.util.CommonMethods.*;
+import static org.caveapi.util.CommonMethods.runEx;
 
 /**
  * A counterpart to java.util.Optional used for neatly handling errors.

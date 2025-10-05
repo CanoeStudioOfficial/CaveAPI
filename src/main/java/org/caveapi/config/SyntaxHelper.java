@@ -7,7 +7,7 @@ import org.hjson.JsonValue;
 import java.io.File;
 import java.util.regex.Pattern;
 
-import static org.caveapi.util.CommonMethods.*;
+import static org.caveapi.util.CommonMethods.runExF;
 
 public class SyntaxHelper {
 

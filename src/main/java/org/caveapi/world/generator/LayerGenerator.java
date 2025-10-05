@@ -1,9 +1,9 @@
 package org.caveapi.world.generator;
 
-import org.caveapi.data.LayerSettings;
-import org.caveapi.world.LayersBiomeArray;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
+import org.caveapi.data.LayerSettings;
+import org.caveapi.world.LayersBiomeArray;
 
 import java.util.HashMap;
 import java.util.List;

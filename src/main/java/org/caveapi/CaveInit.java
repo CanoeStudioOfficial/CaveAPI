@@ -1,11 +1,11 @@
 package org.caveapi;
 
+import lombok.extern.log4j.Log4j2;
+import net.minecraftforge.fml.common.Loader;
 import org.caveapi.config.CavePreset;
 import org.caveapi.config.ConfigFile;
 import org.caveapi.config.PresetReader;
 import org.caveapi.util.HjsonTools;
-import lombok.extern.log4j.Log4j2;
-import net.minecraftforge.fml.common.Loader;
 
 import java.io.File;
 import java.util.Arrays;
@@ -14,11 +14,9 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Optional;
 
-import static org.caveapi.util.CommonMethods.empty;
-import static org.caveapi.util.CommonMethods.extension;
-import static org.caveapi.util.CommonMethods.full;
 import static org.caveapi.io.SafeFileIO.ensureDirExists;
 import static org.caveapi.io.SafeFileIO.fileExists;
+import static org.caveapi.util.CommonMethods.*;
 
 @Log4j2
 public class CaveInit {

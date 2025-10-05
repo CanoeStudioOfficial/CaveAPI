@@ -1,10 +1,10 @@
 package org.caveapi.world.generator;
 
+import net.minecraft.util.math.MathHelper;
 import org.caveapi.data.RavineSettings;
 import org.caveapi.data.TunnelSettings;
-import org.caveapi.model.ScalableFloat;
 import org.caveapi.model.PrimerData;
-import net.minecraft.util.math.MathHelper;
+import org.caveapi.model.ScalableFloat;
 
 import java.util.Random;
 

@@ -1,10 +1,10 @@
 package org.caveapi.model;
 
-import org.caveapi.data.ShellSettings;
-import org.caveapi.noise.DummyGenerator;
 import fastnoise.FastNoise;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.world.World;
+import org.caveapi.data.ShellSettings;
+import org.caveapi.noise.DummyGenerator;
 
 import java.util.Collections;
 import java.util.List;

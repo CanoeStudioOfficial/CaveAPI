@@ -1,11 +1,11 @@
 package org.caveapi.model;
 
-import org.caveapi.data.WallDecoratorSettings;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Singular;
 import lombok.experimental.FieldDefaults;
 import net.minecraft.world.World;
+import org.caveapi.data.WallDecoratorSettings;
 
 import java.util.List;
 

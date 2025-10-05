@@ -1,7 +1,7 @@
 package org.caveapi.config;
 
-import org.caveapi.util.HjsonTools;
 import org.apache.commons.lang3.tuple.Pair;
+import org.caveapi.util.HjsonTools;
 import org.hjson.JsonArray;
 import org.hjson.JsonObject;
 import org.hjson.JsonValue;

@@ -3,7 +3,6 @@ package org.caveapi.world;
 import org.caveapi.world.feature.PillarGenerator;
 import org.caveapi.world.feature.StalactiteGenerator;
 import org.caveapi.world.feature.StructureGenerator;
-import com.personthecat.cavegenerator.world.generator.*;
 import org.caveapi.world.generator.*;
 
 import java.util.HashMap;

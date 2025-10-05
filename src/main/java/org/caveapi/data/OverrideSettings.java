@@ -1,10 +1,5 @@
 package org.caveapi.data;
 
-import org.caveapi.config.CavePreset;
-import org.caveapi.config.FieldHistory;
-import org.caveapi.model.Range;
-import org.caveapi.util.HjsonMapper;
-import org.caveapi.util.HjsonTools;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Builder.Default;
@@ -13,6 +8,11 @@ import lombok.experimental.FieldNameConstants;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.world.biome.Biome;
 import org.apache.commons.lang3.ArrayUtils;
+import org.caveapi.config.CavePreset;
+import org.caveapi.config.FieldHistory;
+import org.caveapi.model.Range;
+import org.caveapi.util.HjsonMapper;
+import org.caveapi.util.HjsonTools;
 import org.hjson.JsonObject;
 
 import java.util.ArrayList;

@@ -1,12 +1,5 @@
 package org.caveapi.data;
 
-import org.caveapi.config.PresetTester;
-import org.caveapi.model.FloatRange;
-import org.caveapi.model.Range;
-import org.caveapi.noise.CachedNoiseGenerator;
-import org.caveapi.noise.DummyGenerator;
-import org.caveapi.util.HjsonMapper;
-import org.caveapi.util.XoRoShiRo;
 import fastnoise.FastNoise;
 import fastnoise.FastNoise.NoiseType;
 import lombok.AccessLevel;
@@ -15,6 +8,13 @@ import lombok.Builder.Default;
 import lombok.experimental.FieldDefaults;
 import lombok.experimental.FieldNameConstants;
 import net.minecraft.world.World;
+import org.caveapi.config.PresetTester;
+import org.caveapi.model.FloatRange;
+import org.caveapi.model.Range;
+import org.caveapi.noise.CachedNoiseGenerator;
+import org.caveapi.noise.DummyGenerator;
+import org.caveapi.util.HjsonMapper;
+import org.caveapi.util.XoRoShiRo;
 import org.hjson.JsonObject;
 
 import java.util.Optional;

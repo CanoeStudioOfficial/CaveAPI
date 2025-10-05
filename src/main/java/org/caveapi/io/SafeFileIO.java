@@ -11,12 +11,8 @@ import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static org.caveapi.util.CommonMethods.empty;
-import static org.caveapi.util.CommonMethods.full;
-import static org.caveapi.util.CommonMethods.nullable;
-import static org.caveapi.util.CommonMethods.runEx;
-import static org.caveapi.util.CommonMethods.runExF;
 import static org.caveapi.CaveInit.BACKUP_DIR;
+import static org.caveapi.util.CommonMethods.*;
 
 /** A few potentially controversial ways for handling errors in file io. */
 public class SafeFileIO {
