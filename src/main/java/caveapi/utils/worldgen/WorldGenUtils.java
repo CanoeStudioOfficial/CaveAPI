@@ -1,11 +1,11 @@
-package caveapi.utils;
+package caveapi.utils.worldgen;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.chunk.ChunkPrimer;
 
-public class Utils
+public class WorldGenUtils
 {
     private static final int MAX_Y = 60;
 
