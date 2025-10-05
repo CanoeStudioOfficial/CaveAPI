@@ -5,8 +5,8 @@ import org.caveapi.CaveInit;
 import org.caveapi.CaveAPI;
 import org.caveapi.config.PresetExpander;
 import org.caveapi.world.feature.StructureSpawner;
-import net.hjson.hjson.JsonObject;
-import net.hjson.hjson.JsonValue;
+import net.hjson.JsonObject;
+import net.hjson.JsonValue;
 
 import java.io.*;
 

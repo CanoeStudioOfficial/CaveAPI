@@ -1,10 +1,10 @@
 package org.caveapi.config;
 
 import lombok.AllArgsConstructor;
-import net.hjson.hjson.HjsonOptions;
-import net.hjson.hjson.JsonArray;
-import net.hjson.hjson.JsonObject;
-import net.hjson.hjson.JsonValue;
+import net.hjson.HjsonOptions;
+import net.hjson.JsonArray;
+import net.hjson.JsonObject;
+import net.hjson.JsonValue;
 
 import java.util.ArrayList;
 import java.util.List;

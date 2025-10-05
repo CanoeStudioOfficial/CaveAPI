@@ -9,7 +9,7 @@ import org.caveapi.config.CavePreset;
 import org.caveapi.model.Range;
 import org.caveapi.model.ScalableFloat;
 import org.caveapi.util.HjsonMapper;
-import net.hjson.hjson.JsonObject;
+import net.hjson.JsonObject;
 
 import static org.caveapi.util.CommonMethods.invert;
 

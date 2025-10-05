@@ -1,4 +1,4 @@
-package net.hjson.hjson;
+package net.hjson;
 
 /**
  * This class represents the specific type of comment to be used in conjunction with a {@link JsonValue}.

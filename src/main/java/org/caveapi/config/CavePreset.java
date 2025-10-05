@@ -7,7 +7,7 @@ import lombok.experimental.FieldDefaults;
 import lombok.experimental.FieldNameConstants;
 import org.caveapi.data.*;
 import org.caveapi.util.HjsonMapper;
-import net.hjson.hjson.JsonObject;
+import net.hjson.JsonObject;
 
 import java.util.Collections;
 import java.util.List;

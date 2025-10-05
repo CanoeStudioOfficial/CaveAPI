@@ -31,8 +31,8 @@ import org.caveapi.util.CaveLinter;
 import org.caveapi.util.HjsonTools;
 import org.caveapi.world.GeneratorController;
 import org.caveapi.world.feature.StructureSpawner;
-import net.hjson.hjson.JsonObject;
-import net.hjson.hjson.JsonValue;
+import net.hjson.JsonObject;
+import net.hjson.JsonValue;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.awt.*;

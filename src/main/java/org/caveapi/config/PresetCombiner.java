@@ -3,8 +3,8 @@ package org.caveapi.config;
 import org.apache.commons.lang3.CharUtils;
 import org.caveapi.CaveInit;
 import org.caveapi.util.PathComponent;
-import net.hjson.hjson.JsonObject;
-import net.hjson.hjson.JsonValue;
+import net.hjson.JsonObject;
+import net.hjson.JsonValue;
 
 import java.io.File;
 import java.io.IOException;

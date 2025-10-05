@@ -3,9 +3,9 @@ package org.caveapi.config;
 import lombok.extern.log4j.Log4j2;
 import org.caveapi.CaveInit;
 import org.caveapi.util.HjsonTools;
-import net.hjson.hjson.JsonObject;
-import net.hjson.hjson.JsonValue;
-import net.hjson.hjson.ParseException;
+import net.hjson.JsonObject;
+import net.hjson.JsonValue;
+import net.hjson.ParseException;
 
 import java.io.File;
 import java.io.FileReader;

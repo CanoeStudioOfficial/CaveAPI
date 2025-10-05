@@ -13,7 +13,7 @@ import org.caveapi.config.FieldHistory;
 import org.caveapi.model.Range;
 import org.caveapi.util.HjsonMapper;
 import org.caveapi.util.HjsonTools;
-import net.hjson.hjson.JsonObject;
+import net.hjson.JsonObject;
 
 import java.util.ArrayList;
 import java.util.Collections;

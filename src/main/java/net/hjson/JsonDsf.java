@@ -19,7 +19,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  ******************************************************************************/
-package net.hjson.hjson;
+package net.hjson;
 
 @SuppressWarnings("serial") // use default serial UID
 class JsonDsf extends JsonValue {

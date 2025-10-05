@@ -9,7 +9,7 @@ import org.caveapi.config.CavePreset;
 import org.caveapi.model.ArchaeneWallFixed;
 import org.caveapi.model.Range;
 import org.caveapi.util.HjsonMapper;
-import net.hjson.hjson.JsonObject;
+import net.hjson.JsonObject;
 
 import java.util.Collections;
 import java.util.List;

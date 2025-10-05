@@ -15,7 +15,7 @@ import org.caveapi.noise.CachedNoiseGenerator;
 import org.caveapi.noise.DummyGenerator;
 import org.caveapi.util.HjsonMapper;
 import org.caveapi.util.XoRoShiRo;
-import net.hjson.hjson.JsonObject;
+import net.hjson.JsonObject;
 
 import java.util.Optional;
 import java.util.Random;

@@ -19,7 +19,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  ******************************************************************************/
-package net.hjson.hjson;
+package net.hjson;
 
 /**
  * A interface to support Domain Specific Formats for Hjson.

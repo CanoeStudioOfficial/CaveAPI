@@ -1,4 +1,4 @@
-package net.hjson.hjson;
+package net.hjson;
 
 /**
  * This class represents the various comment styles that can be used when adding

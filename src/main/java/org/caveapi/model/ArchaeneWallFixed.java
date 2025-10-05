@@ -7,9 +7,9 @@ import lombok.experimental.FieldNameConstants;
 import net.minecraft.block.state.IBlockState;
 import org.caveapi.data.CavernSettings;
 import org.caveapi.util.HjsonMapper;
-import net.hjson.hjson.JsonArray;
-import net.hjson.hjson.JsonObject;
-import net.hjson.hjson.JsonValue;
+import net.hjson.JsonArray;
+import net.hjson.JsonObject;
+import net.hjson.JsonValue;
 
 import java.util.List;
 
