@@ -1,10 +1,10 @@
-package com.personthecat.cavegenerator.util;
+package org.caveapi.util;
 
-import com.personthecat.cavegenerator.model.Direction;
-import com.personthecat.cavegenerator.model.FloatRange;
-import com.personthecat.cavegenerator.model.Range;
-import com.personthecat.cavegenerator.model.ScalableFloat;
-import com.personthecat.cavegenerator.data.WallDecoratorSettings.Placement;
+import org.caveapi.model.Direction;
+import org.caveapi.model.FloatRange;
+import org.caveapi.model.Range;
+import org.caveapi.model.ScalableFloat;
+import org.caveapi.data.WallDecoratorSettings.Placement;
 import fastnoise.FastNoise.CellularDistanceFunction;
 import fastnoise.FastNoise.CellularReturnType;
 import fastnoise.FastNoise.FractalType;
@@ -15,7 +15,6 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.structure.template.PlacementSettings;
-import org.hjson.JsonArray;
 import org.hjson.JsonObject;
 import org.hjson.JsonValue;
 
@@ -27,7 +26,7 @@ import java.util.function.Function;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
-import static com.personthecat.cavegenerator.util.CommonMethods.runExF;
+import static org.caveapi.util.CommonMethods.runExF;
 
 @AllArgsConstructor
 public class HjsonMapper {

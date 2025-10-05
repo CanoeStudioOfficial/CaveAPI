@@ -1,24 +1,17 @@
-package com.personthecat.cavegenerator.world.feature;
+package org.caveapi.world.feature;
 
-import com.personthecat.cavegenerator.Main;
-import com.personthecat.cavegenerator.config.ConfigFile;
-import com.personthecat.cavegenerator.data.ConditionSettings;
-import com.personthecat.cavegenerator.noise.CachedNoiseHelper;
-import com.personthecat.cavegenerator.world.BiomeCache;
-import com.personthecat.cavegenerator.world.BiomeSearch;
-import com.personthecat.cavegenerator.world.GeneratorController;
-import com.personthecat.cavegenerator.world.HeightMapLocator;
-import com.personthecat.cavegenerator.world.data.ChunkStaging;
-import com.personthecat.cavegenerator.world.generator.PrimerContext;
+import org.caveapi.Main;
+import org.caveapi.config.ConfigFile;
+import org.caveapi.world.GeneratorController;
+import org.caveapi.world.HeightMapLocator;
+import org.caveapi.world.data.ChunkStaging;
 import lombok.extern.log4j.Log4j2;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.ChunkPos;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.BiomeProvider;
 import net.minecraftforge.fml.common.IWorldGenerator;
 import net.minecraftforge.common.DimensionManager;
 

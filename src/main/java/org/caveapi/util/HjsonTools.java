@@ -1,4 +1,4 @@
-package com.personthecat.cavegenerator.util;
+package org.caveapi.util;
 
 import com.personthecat.cavegenerator.model.*;
 import net.minecraft.block.state.IBlockState;
@@ -9,6 +9,10 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.structure.template.PlacementSettings;
 import net.minecraftforge.common.BiomeDictionary;
 import org.apache.commons.io.output.NullWriter;
+import org.caveapi.model.Direction;
+import org.caveapi.model.FloatRange;
+import org.caveapi.model.Range;
+import org.caveapi.model.ScalableFloat;
 import org.hjson.*;
 
 import java.io.File;
@@ -18,14 +22,14 @@ import java.io.Writer;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static com.personthecat.cavegenerator.util.CommonMethods.extension;
-import static com.personthecat.cavegenerator.util.CommonMethods.find;
-import static com.personthecat.cavegenerator.util.CommonMethods.getBiome;
-import static com.personthecat.cavegenerator.util.CommonMethods.getBiomes;
-import static com.personthecat.cavegenerator.util.CommonMethods.getBiomeType;
-import static com.personthecat.cavegenerator.util.CommonMethods.getBlockState;
-import static com.personthecat.cavegenerator.util.CommonMethods.runEx;
-import static com.personthecat.cavegenerator.util.CommonMethods.runExF;
+import static org.caveapi.util.CommonMethods.extension;
+import static org.caveapi.util.CommonMethods.find;
+import static org.caveapi.util.CommonMethods.getBiome;
+import static org.caveapi.util.CommonMethods.getBiomes;
+import static org.caveapi.util.CommonMethods.getBiomeType;
+import static org.caveapi.util.CommonMethods.getBlockState;
+import static org.caveapi.util.CommonMethods.runEx;
+import static org.caveapi.util.CommonMethods.runExF;
 
 @SuppressWarnings("WeakerAccess")
 public class HjsonTools {

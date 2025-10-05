@@ -1,4 +1,4 @@
-package com.personthecat.cavegenerator.model;
+package org.caveapi.model;
 
 import org.jetbrains.annotations.NotNull;
 

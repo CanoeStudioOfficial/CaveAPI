@@ -1,4 +1,4 @@
-package com.personthecat.cavegenerator.util;
+package org.caveapi.util;
 
 import lombok.AllArgsConstructor;
 import net.minecraft.util.text.ITextComponent;

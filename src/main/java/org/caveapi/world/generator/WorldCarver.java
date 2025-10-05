@@ -1,10 +1,11 @@
-package com.personthecat.cavegenerator.world.generator;
+package org.caveapi.world.generator;
 
-import com.personthecat.cavegenerator.data.ConditionSettings;
-import com.personthecat.cavegenerator.data.DecoratorSettings;
-import com.personthecat.cavegenerator.data.PondSettings;
+import org.caveapi.data.ConditionSettings;
+import org.caveapi.data.DecoratorSettings;
+import org.caveapi.data.PondSettings;
 import com.personthecat.cavegenerator.model.*;
-import com.personthecat.cavegenerator.util.PositionFlags;
+import org.caveapi.model.*;
+import org.caveapi.util.PositionFlags;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;

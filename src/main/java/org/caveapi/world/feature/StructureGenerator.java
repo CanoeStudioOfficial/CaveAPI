@@ -1,7 +1,7 @@
-package com.personthecat.cavegenerator.world.feature;
+package org.caveapi.world.feature;
 
-import com.personthecat.cavegenerator.data.StructureSettings;
-import com.personthecat.cavegenerator.model.Range;
+import org.caveapi.data.StructureSettings;
+import org.caveapi.model.Range;
 import lombok.extern.log4j.Log4j2;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.Rotation;
@@ -11,12 +11,11 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.structure.template.Template;
 
-import java.util.List;
 import java.util.Optional;
 import java.util.Random;
 
-import static com.personthecat.cavegenerator.util.CommonMethods.empty;
-import static com.personthecat.cavegenerator.util.CommonMethods.full;
+import static org.caveapi.util.CommonMethods.empty;
+import static org.caveapi.util.CommonMethods.full;
 
 @Log4j2
 public class StructureGenerator extends FeatureGenerator {

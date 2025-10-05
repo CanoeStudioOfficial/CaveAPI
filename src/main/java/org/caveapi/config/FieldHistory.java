@@ -1,6 +1,6 @@
-package com.personthecat.cavegenerator.config;
+package org.caveapi.config;
 
-import com.personthecat.cavegenerator.util.HjsonTools;
+import org.caveapi.util.HjsonTools;
 import org.apache.commons.lang3.tuple.Pair;
 import org.hjson.JsonArray;
 import org.hjson.JsonObject;
@@ -10,7 +10,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.function.Consumer;
 
-import static com.personthecat.cavegenerator.util.CommonMethods.f;
+import static org.caveapi.util.CommonMethods.f;
 
 /**
  * This class contains a series of high level utilities to be used for updating old JSON presets

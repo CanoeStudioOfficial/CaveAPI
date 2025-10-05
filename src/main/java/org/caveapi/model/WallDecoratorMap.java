@@ -1,6 +1,6 @@
-package com.personthecat.cavegenerator.model;
+package org.caveapi.model;
 
-import com.personthecat.cavegenerator.data.WallDecoratorSettings;
+import org.caveapi.data.WallDecoratorSettings;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Singular;

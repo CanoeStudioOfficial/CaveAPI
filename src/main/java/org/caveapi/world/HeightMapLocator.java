@@ -1,4 +1,4 @@
-package com.personthecat.cavegenerator.world;
+package org.caveapi.world;
 
 import lombok.extern.log4j.Log4j2;
 import net.minecraft.block.state.IBlockState;

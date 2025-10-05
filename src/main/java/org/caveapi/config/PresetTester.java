@@ -1,10 +1,11 @@
-package com.personthecat.cavegenerator.config;
+package org.caveapi.config;
 
 import com.personthecat.cavegenerator.data.*;
-import com.personthecat.cavegenerator.model.Direction;
-import com.personthecat.cavegenerator.model.FloatRange;
-import com.personthecat.cavegenerator.model.Range;
-import com.personthecat.cavegenerator.model.ScalableFloat;
+import org.caveapi.data.*;
+import org.caveapi.model.Direction;
+import org.caveapi.model.FloatRange;
+import org.caveapi.model.Range;
+import org.caveapi.model.ScalableFloat;
 import lombok.extern.log4j.Log4j2;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;

@@ -1,16 +1,18 @@
-package com.personthecat.cavegenerator;
+package org.caveapi;
 
-import com.personthecat.cavegenerator.commands.CommandCave;
-import com.personthecat.cavegenerator.config.CavePreset;
-import com.personthecat.cavegenerator.io.JarFiles;
-import com.personthecat.cavegenerator.noise.CachedNoiseHelper;
+import caveapi.caveapi.Tags;
+import org.caveapi.commands.CommandCave;
+import org.caveapi.config.CavePreset;
+import org.caveapi.io.JarFiles;
+import org.caveapi.noise.CachedNoiseHelper;
 import com.personthecat.cavegenerator.world.*;
-import com.personthecat.cavegenerator.world.data.WorldDataHandler;
-import com.personthecat.cavegenerator.world.event.DisablePopulateChunkEvent;
-import com.personthecat.cavegenerator.world.event.DisableVanillaStoneGen;
-import com.personthecat.cavegenerator.world.event.ReplaceVanillaCaveGen;
-import com.personthecat.cavegenerator.world.feature.FeatureCaveHook;
-import com.personthecat.cavegenerator.world.feature.StructureSpawner;
+import org.caveapi.world.GeneratorController;
+import org.caveapi.world.data.WorldDataHandler;
+import org.caveapi.world.event.DisablePopulateChunkEvent;
+import org.caveapi.world.event.DisableVanillaStoneGen;
+import org.caveapi.world.event.ReplaceVanillaCaveGen;
+import org.caveapi.world.feature.FeatureCaveHook;
+import org.caveapi.world.feature.StructureSpawner;
 import lombok.extern.log4j.Log4j2;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.structure.template.Template;
@@ -30,7 +32,7 @@ import java.util.HashMap;
 import java.util.TreeMap;
 
 @Mod(
-    modid = Main.MODID,
+    modid = Tags.MOD_ID,
     name = "Cave Generator",
     version = "1.1",
     dependencies = "after:worleycaves;",

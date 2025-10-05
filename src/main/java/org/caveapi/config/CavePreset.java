@@ -1,7 +1,8 @@
-package com.personthecat.cavegenerator.config;
+package org.caveapi.config;
 
 import com.personthecat.cavegenerator.data.*;
-import com.personthecat.cavegenerator.util.HjsonMapper;
+import org.caveapi.data.*;
+import org.caveapi.util.HjsonMapper;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Builder.Default;

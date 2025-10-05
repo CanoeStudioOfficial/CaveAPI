@@ -1,10 +1,9 @@
-package com.personthecat.cavegenerator.world.event;
+package org.caveapi.world.event;
 
-import com.personthecat.cavegenerator.config.ConfigFile;
-import com.personthecat.cavegenerator.world.generator.NoGeneration;
-import com.personthecat.cavegenerator.world.generator.EarlyCaveHook;
+import org.caveapi.config.ConfigFile;
+import org.caveapi.world.generator.NoGeneration;
+import org.caveapi.world.generator.EarlyCaveHook;
 import net.minecraftforge.event.terraingen.InitMapGenEvent;
-import net.minecraftforge.fml.common.eventhandler.Event;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
