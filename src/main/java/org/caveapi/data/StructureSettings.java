@@ -14,7 +14,7 @@ import org.caveapi.model.BlockCheck;
 import org.caveapi.model.Direction;
 import org.caveapi.model.Range;
 import org.caveapi.util.HjsonMapper;
-import org.hjson.JsonObject;
+import net.hjson.hjson.JsonObject;
 
 import java.util.Collections;
 import java.util.List;

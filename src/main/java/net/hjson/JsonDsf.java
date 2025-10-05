@@ -19,40 +19,34 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  ******************************************************************************/
-package org.hjson;
+package net.hjson.hjson;
 
-/**
- * A interface to support Domain Specific Formats for Hjson.
- */
-public interface IHjsonDsfProvider
-{
-  /**
-   * Gets the name of this DSF.
-   *
-   * @return name
-   */
-  String getName();
+@SuppressWarnings("serial") // use default serial UID
+class JsonDsf extends JsonValue {
 
-  /**
-   * Gets the description of this DSF.
-   *
-   * @return description
-   */
-  String getDescription();
+  private final Object value;
 
-  /**
-   * Tries to parse the text as a DSF value.
-   *
-   * @param text the DSF value
-   * @return JsonValue
-   */
-  JsonValue parse(String text);
+  JsonDsf(Object value) {
+    this.value=value;
+  }
 
-  /**
-   * Stringifies DSF values.
-   *
-   * @param value the JSON value
-   * @return string
-   */
-  String stringify(JsonValue value);
+  @Override
+  public String toString() {
+    return "null";
+  }
+
+  @Override
+  public JsonType getType() {
+    return JsonType.DSF;
+  }
+
+  @Override
+  public Object asDsf() {
+    return value;
+  }
+
+  @Override
+  public int hashCode() {
+    return value.hashCode();
+  }
 }

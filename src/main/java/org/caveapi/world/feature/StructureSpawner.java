@@ -12,7 +12,7 @@ import net.minecraft.world.gen.structure.template.PlacementSettings;
 import net.minecraft.world.gen.structure.template.Template;
 import net.minecraft.world.gen.structure.template.TemplateManager;
 import net.minecraftforge.fml.common.Loader;
-import org.caveapi.Main;
+import org.caveapi.CaveAPI;
 import org.caveapi.util.Result;
 
 import java.io.File;
@@ -83,7 +83,7 @@ public class StructureSpawner {
      * throws a RuntimeException when no template is found.
      */
     public static Template getTemplate(String fileOrResource, World world) {
-        final Map<String, Template> structures = Main.instance.structures;
+        final Map<String, Template> structures = CaveAPI.instance.structures;
         fileOrResource = removeNbt(fileOrResource);
         // Attempt to load the preset directly from the map.
         Optional<Template> fromMap = safeGet(structures, fileOrResource);

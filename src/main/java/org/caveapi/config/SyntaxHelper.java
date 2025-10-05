@@ -1,8 +1,8 @@
 package org.caveapi.config;
 
-import org.hjson.JsonArray;
-import org.hjson.JsonObject;
-import org.hjson.JsonValue;
+import net.hjson.hjson.JsonArray;
+import net.hjson.hjson.JsonObject;
+import net.hjson.hjson.JsonValue;
 
 import java.io.File;
 import java.util.regex.Pattern;

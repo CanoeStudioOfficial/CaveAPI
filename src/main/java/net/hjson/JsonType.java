@@ -19,17 +19,40 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  ******************************************************************************/
-package org.hjson;
+package net.hjson.hjson;
 
-/** The ToString format. */
-public enum Stringify {
-  /** JSON (no whitespace). */
-  PLAIN,
-  /** Formatted JSON. */
-  FORMATTED,
-  /** Hjson. */
-  HJSON,
-  /** Hjson w/ comments */
-  HJSON_COMMENTS,
+/**
+ * Defines the known json types.
+ * There is no null type as the primitive will be null instead of the JsonValue containing null.
+ */
+public enum JsonType
+{
+  /**
+   * Json value of type string.
+   */
+  STRING,
+  /**
+   * Json value of type number.
+   */
+  NUMBER,
+  /**
+   * Json value of type object.
+   */
+  OBJECT,
+  /**
+   * Json value of type array.
+   */
+  ARRAY,
+  /**
+   * Json value of type boolean.
+   */
+  BOOLEAN,
+  /**
+   * Json value of type null.
+   */
+  NULL,
+  /**
+   * Json value of type DSF.
+   */
+  DSF,
 }
-

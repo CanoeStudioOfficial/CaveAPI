@@ -6,7 +6,7 @@ import lombok.Builder.Default;
 import lombok.experimental.FieldDefaults;
 import lombok.experimental.FieldNameConstants;
 import org.caveapi.util.HjsonMapper;
-import org.hjson.JsonObject;
+import net.hjson.hjson.JsonObject;
 
 import static org.caveapi.util.CommonMethods.invert;
 

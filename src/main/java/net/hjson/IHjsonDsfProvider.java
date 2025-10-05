@@ -1,5 +1,4 @@
 /*******************************************************************************
- * Copyright (c) 2013, 2015 EclipseSource.
  * Copyright (c) 2015-2016 Christian Zangl
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -20,52 +19,40 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  ******************************************************************************/
-package org.hjson;
+package net.hjson.hjson;
 
-@SuppressWarnings("serial") // use default serial UID
-class JsonString extends JsonValue {
+/**
+ * A interface to support Domain Specific Formats for Hjson.
+ */
+public interface IHjsonDsfProvider
+{
+  /**
+   * Gets the name of this DSF.
+   *
+   * @return name
+   */
+  String getName();
 
-  private final String string;
+  /**
+   * Gets the description of this DSF.
+   *
+   * @return description
+   */
+  String getDescription();
 
-  JsonString(String string) {
-    if (string==null) {
-      throw new NullPointerException("string is null");
-    }
-    this.string=string;
-  }
+  /**
+   * Tries to parse the text as a DSF value.
+   *
+   * @param text the DSF value
+   * @return JsonValue
+   */
+  JsonValue parse(String text);
 
-  @Override
-  public JsonType getType() {
-    return JsonType.STRING;
-  }
-
-  @Override
-  public boolean isString() {
-    return true;
-  }
-
-  @Override
-  public String asString() {
-    return string;
-  }
-
-  @Override
-  public int hashCode() {
-    return super.hashCode() * 59 + string.hashCode();
-  }
-
-  @Override
-  public boolean equals(Object object) {
-    if (this==object) {
-      return true;
-    }
-    if (object==null) {
-      return false;
-    }
-    if (getClass()!=object.getClass()) {
-      return false;
-    }
-    JsonString other=(JsonString)object;
-    return string.equals(other.string);
-  }
+  /**
+   * Stringifies DSF values.
+   *
+   * @param value the JSON value
+   * @return string
+   */
+  String stringify(JsonValue value);
 }

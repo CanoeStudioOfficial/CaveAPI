@@ -10,7 +10,7 @@ import net.minecraft.block.state.IBlockState;
 import org.caveapi.config.CavePreset;
 import org.caveapi.model.Range;
 import org.caveapi.util.HjsonMapper;
-import org.hjson.JsonObject;
+import net.hjson.hjson.JsonObject;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Collections;

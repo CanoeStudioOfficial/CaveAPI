@@ -12,15 +12,15 @@ import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import org.caveapi.Main;
+import org.caveapi.CaveAPI;
 
 import javax.annotation.Nullable;
 
 @Mod.EventBusSubscriber
 public class WorldDataHandler {
 
-    private static final ResourceLocation CG_WORLD_CAP_RL = new ResourceLocation(Main.MODID, "cgw");
-    private static final ResourceLocation CG_CHUNK_CAP_RL = new ResourceLocation(Main.MODID, "cgc");
+    private static final ResourceLocation CG_WORLD_CAP_RL = new ResourceLocation(CaveAPI.MODID, "cgw");
+    private static final ResourceLocation CG_CHUNK_CAP_RL = new ResourceLocation(CaveAPI.MODID, "cgc");
 
     @CapabilityInject(WorldData.class)
     public static Capability<WorldData> CG_WORLD_CAP = null;

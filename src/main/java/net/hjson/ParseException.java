@@ -1,4 +1,5 @@
 /*******************************************************************************
+ * Copyright (c) 2013, 2014 EclipseSource.
  * Copyright (c) 2015-2016 Christian Zangl
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -19,34 +20,52 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  ******************************************************************************/
-package org.hjson;
+package net.hjson.hjson;
 
+
+/**
+ * An unchecked exception to indicate that an input does not qualify as valid JSON.
+ */
 @SuppressWarnings("serial") // use default serial UID
-class JsonDsf extends JsonValue {
+public class ParseException extends RuntimeException {
 
-  private final Object value;
+  private final int offset;
+  private final int line;
+  private final int column;
 
-  JsonDsf(Object value) {
-    this.value=value;
+  ParseException(String message, int offset, int line, int column) {
+    super(message+" at "+line+":"+column);
+    this.offset=offset;
+    this.line=line;
+    this.column=column;
   }
 
-  @Override
-  public String toString() {
-    return "null";
+  /**
+   * Returns the absolute index of the character at which the error occurred. The
+   * index of the first character of a document is 0.
+   *
+   * @return the character offset at which the error occurred, will be &gt;= 0
+   */
+  public int getOffset() {
+    return offset;
   }
 
-  @Override
-  public JsonType getType() {
-    return JsonType.DSF;
+  /**
+   * Returns the number of the line in which the error occurred. The first line counts as 1.
+   *
+   * @return the line in which the error occurred, will be &gt;= 1
+   */
+  public int getLine() {
+    return line;
   }
 
-  @Override
-  public Object asDsf() {
-    return value;
-  }
-
-  @Override
-  public int hashCode() {
-    return value.hashCode();
+  /**
+   * Returns the index of the character at which the error occurred, relative to the line. The
+   * index of the first character of a line is 0.
+   *
+   * @return the column in which the error occurred, will be &gt;= 0
+   */
+  public int getColumn() {
+    return column;
   }
 }

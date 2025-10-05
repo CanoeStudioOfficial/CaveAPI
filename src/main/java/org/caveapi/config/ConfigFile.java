@@ -8,10 +8,10 @@ import net.minecraftforge.common.config.ConfigManager;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import org.caveapi.Main;
+import org.caveapi.CaveAPI;
 
 @Mod.EventBusSubscriber
-@Config(modid = Main.MODID)
+@Config(modid = CaveAPI.MODID)
 public class ConfigFile {
 
     @Comment({
@@ -108,8 +108,8 @@ public class ConfigFile {
 
     @SubscribeEvent
     public static void onConfigChanged(ConfigChangedEvent.OnConfigChangedEvent event) {
-        if (event.getModID().equals(Main.MODID)) {
-            ConfigManager.sync(Main.MODID, Config.Type.INSTANCE);
+        if (event.getModID().equals(CaveAPI.MODID)) {
+            ConfigManager.sync(CaveAPI.MODID, Config.Type.INSTANCE);
         }
     }
 }

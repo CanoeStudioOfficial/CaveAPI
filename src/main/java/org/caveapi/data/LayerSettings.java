@@ -10,7 +10,7 @@ import net.minecraft.init.Blocks;
 import org.caveapi.config.CavePreset;
 import org.caveapi.model.Range;
 import org.caveapi.util.HjsonMapper;
-import org.hjson.JsonObject;
+import net.hjson.hjson.JsonObject;
 
 import java.util.Collections;
 import java.util.List;

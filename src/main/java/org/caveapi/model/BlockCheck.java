@@ -8,9 +8,9 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
 import org.caveapi.data.StructureSettings;
 import org.caveapi.util.HjsonMapper;
-import org.hjson.JsonArray;
-import org.hjson.JsonObject;
-import org.hjson.JsonValue;
+import net.hjson.hjson.JsonArray;
+import net.hjson.hjson.JsonObject;
+import net.hjson.hjson.JsonValue;
 
 import java.util.List;
 

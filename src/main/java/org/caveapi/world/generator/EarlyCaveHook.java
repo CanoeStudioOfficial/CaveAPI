@@ -6,7 +6,7 @@ import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.gen.MapGenBase;
 import net.minecraftforge.common.DimensionManager;
 import org.apache.commons.lang3.ArrayUtils;
-import org.caveapi.Main;
+import org.caveapi.CaveAPI;
 import org.caveapi.config.ConfigFile;
 import org.caveapi.noise.CachedNoiseHelper;
 import org.caveapi.world.BiomeSearch;
@@ -34,7 +34,7 @@ public class EarlyCaveHook extends MapGenBase {
             this.priorCaves.generate(world, x, z, primer);
         }
         // Don't really have a good way to access this without writing the game myself.
-        final Map<String, GeneratorController> generators = Main.instance.loadGenerators(world);
+        final Map<String, GeneratorController> generators = CaveAPI.instance.loadGenerators(world);
         final int[][] heightmap = ArrayUtils.contains(ConfigFile.heightMapDims, world.provider.getDimension())
             ? HeightMapLocator.getHeightFromPrimer(primer)
             : HeightMapLocator.FAUX_MAP;

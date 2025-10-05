@@ -22,19 +22,19 @@ import static org.caveapi.util.CommonMethods.*;
 public class CaveInit {
 
     /** A setting indicating the location where backups will be stored. */
-    private static final String BACKUPS = Main.MODID + "/backup";
+    private static final String BACKUPS = CaveAPI.MODID + "/backup";
 
     /** A setting indicating the location where example presets will be kept. */
-    private static final String EXAMPLES = Main.MODID + "/examples";
+    private static final String EXAMPLES = CaveAPI.MODID + "/examples";
 
     /** A setting indicating the location where presets will be kept. */
-    private static final String PRESETS = Main.MODID + "/presets";
+    private static final String PRESETS = CaveAPI.MODID + "/presets";
 
     /** A setting indicating the location where variable imports will be kept. */
-    private static final String IMPORTS = Main.MODID + "/imports";
+    private static final String IMPORTS = CaveAPI.MODID + "/imports";
 
     /** A setting indicating the location where generated presets will be kept. */
-    private static final String GENERATED = Main.MODID + "/generated";
+    private static final String GENERATED = CaveAPI.MODID + "/generated";
 
     /** A message to display when the preset directory is somehow unavailable. */
     private static final String NO_ACCESS = "Currently unable to access preset directory.";
@@ -47,7 +47,7 @@ public class CaveInit {
 
     private static final File CONFIG_DIR = Loader.instance().getConfigDir();
 
-    public static final File CG_DIR = new File(CONFIG_DIR, Main.MODID);
+    public static final File CG_DIR = new File(CONFIG_DIR, CaveAPI.MODID);
     public static final File BACKUP_DIR = new File(CONFIG_DIR, BACKUPS);
     public static final File EXAMPLE_DIR = new File(CONFIG_DIR, EXAMPLES);
     public static final File PRESET_DIR = new File(CONFIG_DIR, PRESETS);

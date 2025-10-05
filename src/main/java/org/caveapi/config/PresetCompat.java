@@ -7,9 +7,9 @@ import org.caveapi.data.*;
 import org.caveapi.io.JarFiles;
 import org.caveapi.util.HjsonTools;
 import org.caveapi.util.Result;
-import org.hjson.JsonArray;
-import org.hjson.JsonObject;
-import org.hjson.JsonValue;
+import net.hjson.hjson.JsonArray;
+import net.hjson.hjson.JsonObject;
+import net.hjson.hjson.JsonValue;
 
 import java.io.File;
 import java.io.IOException;

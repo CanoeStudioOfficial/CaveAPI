@@ -20,9 +20,9 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  ******************************************************************************/
-package org.hjson;
+package net.hjson.hjson;
 
-import org.hjson.JsonObject.Member;
+import net.hjson.hjson.JsonObject.Member;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;

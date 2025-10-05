@@ -12,7 +12,6 @@ import org.caveapi.model.Direction;
 import org.caveapi.model.FloatRange;
 import org.caveapi.model.Range;
 import org.caveapi.model.ScalableFloat;
-import org.hjson.*;
 
 import java.io.File;
 import java.io.FileWriter;

@@ -2,11 +2,11 @@ package org.caveapi.io;
 
 import lombok.extern.log4j.Log4j2;
 import org.caveapi.CaveInit;
-import org.caveapi.Main;
+import org.caveapi.CaveAPI;
 import org.caveapi.config.PresetExpander;
 import org.caveapi.world.feature.StructureSpawner;
-import org.hjson.JsonObject;
-import org.hjson.JsonValue;
+import net.hjson.hjson.JsonObject;
+import net.hjson.hjson.JsonValue;
 
 import java.io.*;
 
@@ -17,7 +17,7 @@ import static org.caveapi.util.CommonMethods.runEx;
 public class JarFiles {
 
     /** The path where all of this mod's assets are stored. */
-    private static final String ASSETS_PATH = "assets/" + Main.MODID;
+    private static final String ASSETS_PATH = "assets/" + CaveAPI.MODID;
 
     /** The name of the folder containing cat presets.  */
     private static final String CAT_FOLDER_NAME = "cat";

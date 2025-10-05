@@ -23,7 +23,7 @@ import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.tuple.Pair;
 import org.caveapi.CaveInit;
-import org.caveapi.Main;
+import org.caveapi.CaveAPI;
 import org.caveapi.config.*;
 import org.caveapi.noise.CachedNoiseHelper;
 import org.caveapi.util.Calculator;
@@ -31,8 +31,8 @@ import org.caveapi.util.CaveLinter;
 import org.caveapi.util.HjsonTools;
 import org.caveapi.world.GeneratorController;
 import org.caveapi.world.feature.StructureSpawner;
-import org.hjson.JsonObject;
-import org.hjson.JsonValue;
+import net.hjson.hjson.JsonObject;
+import net.hjson.hjson.JsonValue;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.awt.*;
@@ -245,15 +245,15 @@ public class CommandCave extends CommandBase {
 
     /** Reloads all presets from the disk. */
     private static void reload(MinecraftServer server, ICommandSender sender) {
-        CaveInit.initPresets(Main.instance.presets);
-        Main.instance.generators.clear();
-        Main.instance.structures.clear();
+        CaveInit.initPresets(CaveAPI.instance.presets);
+        CaveAPI.instance.generators.clear();
+        CaveAPI.instance.structures.clear();
         CachedNoiseHelper.removeAll();
-        StructureSpawner.loadAllStructures(Main.instance.structures);
+        StructureSpawner.loadAllStructures(CaveAPI.instance.structures);
         if (sender.getEntityWorld().provider.getDimension() != 0) {
-            Main.instance.loadGenerators(server.getWorld(0));
+            CaveAPI.instance.loadGenerators(server.getWorld(0));
         }
-        Main.instance.loadGenerators(sender.getEntityWorld());
+        CaveAPI.instance.loadGenerators(sender.getEntityWorld());
         GeneratorController.reloaded = true;
         sendMessage(sender, "Successfully reloaded caves. View the log for diagnostics.");
     }
@@ -571,7 +571,7 @@ public class CommandCave extends CommandBase {
         requireArgs(args, 1);
         final String presetName = noExtension(args[0]);
         // No need to reparse this file. It's in memory.
-        final CavePreset settings = nullable(Main.instance.presets.get(presetName))
+        final CavePreset settings = nullable(CaveAPI.instance.presets.get(presetName))
             .orElseThrow(() -> runExF("Unable to find preset: {}", args[0]));
         final String newName = args.length > 1
             ? noExtension(args[1])

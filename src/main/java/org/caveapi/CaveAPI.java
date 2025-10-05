@@ -1,6 +1,6 @@
 package org.caveapi;
 
-import caveapi.caveapi.Tags;
+import javafx.concurrent.Task;
 import lombok.extern.log4j.Log4j2;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.structure.template.Template;
@@ -13,6 +13,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.event.FMLServerStoppingEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import org.caveapi.caveapi.Tags;
 import org.caveapi.commands.CommandCave;
 import org.caveapi.config.CavePreset;
 import org.caveapi.io.JarFiles;
@@ -38,13 +39,13 @@ import java.util.TreeMap;
     acceptableRemoteVersions = "*"
 )
 @Log4j2
-public class Main {
+public class CaveAPI {
 
     /** The main instance of this mod, as required by Forge. */
-    @Instance public static Main instance;
+    @Instance public static CaveAPI instance;
 
     /** This mod's ID and namespace. */
-    public static final String MODID = "cavegenerator";
+    public static final String MODID = Tags.MOD_ID;
 
     /** A non-null map of ID -> CaveGenerator to be filled on WorldEvent.Load. */
     public final Map<String, GeneratorController> generators = new TreeMap<>();
@@ -86,7 +87,7 @@ public class Main {
     @SuppressWarnings("unused")
     public static void onServerStoppingEvent(FMLServerStoppingEvent event) {
         log.info("Unloading generators.");
-        Main.instance.generators.clear();
+        CaveAPI.instance.generators.clear();
         CachedNoiseHelper.removeAll();
     }
 

@@ -11,8 +11,8 @@ import org.caveapi.model.Direction;
 import org.caveapi.model.FloatRange;
 import org.caveapi.model.Range;
 import org.caveapi.model.ScalableFloat;
-import org.hjson.JsonObject;
-import org.hjson.JsonValue;
+import net.hjson.hjson.JsonObject;
+import net.hjson.hjson.JsonValue;
 
 import java.util.ArrayList;
 import java.util.List;
