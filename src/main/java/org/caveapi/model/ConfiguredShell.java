@@ -1,7 +1,7 @@
-package com.personthecat.cavegenerator.model;
+package org.caveapi.model;
 
-import com.personthecat.cavegenerator.data.ShellSettings;
-import com.personthecat.cavegenerator.noise.DummyGenerator;
+import org.caveapi.data.ShellSettings;
+import org.caveapi.noise.DummyGenerator;
 import fastnoise.FastNoise;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.world.World;
@@ -9,7 +9,7 @@ import net.minecraft.world.World;
 import java.util.Collections;
 import java.util.List;
 
-import static com.personthecat.cavegenerator.util.CommonMethods.map;
+import static org.caveapi.util.CommonMethods.map;
 
 public class ConfiguredShell {
 

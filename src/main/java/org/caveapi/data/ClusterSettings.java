@@ -1,8 +1,8 @@
-package com.personthecat.cavegenerator.data;
+package org.caveapi.data;
 
-import com.personthecat.cavegenerator.config.CavePreset;
-import com.personthecat.cavegenerator.model.Range;
-import com.personthecat.cavegenerator.util.HjsonMapper;
+import org.caveapi.config.CavePreset;
+import org.caveapi.model.Range;
+import org.caveapi.util.HjsonMapper;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Builder.Default;
@@ -18,7 +18,7 @@ import org.hjson.JsonObject;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static com.personthecat.cavegenerator.util.CommonMethods.map;
+import static org.caveapi.util.CommonMethods.map;
 
 /** Data used for spawning giant clusters of stone through ChunkPrimer. */
 @Builder

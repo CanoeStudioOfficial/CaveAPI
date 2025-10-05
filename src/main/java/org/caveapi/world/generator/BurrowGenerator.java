@@ -1,10 +1,10 @@
-package com.personthecat.cavegenerator.world.generator;
+package org.caveapi.world.generator;
 
-import com.personthecat.cavegenerator.config.ConfigFile;
-import com.personthecat.cavegenerator.data.BurrowSettings;
-import com.personthecat.cavegenerator.model.Range;
-import com.personthecat.cavegenerator.util.PositionFlags;
-import com.personthecat.cavegenerator.world.BiomeSearch;
+import org.caveapi.config.ConfigFile;
+import org.caveapi.data.BurrowSettings;
+import org.caveapi.model.Range;
+import org.caveapi.util.PositionFlags;
+import org.caveapi.world.BiomeSearch;
 import fastnoise.FastNoise;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;

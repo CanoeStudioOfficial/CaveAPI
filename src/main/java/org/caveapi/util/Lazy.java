@@ -1,4 +1,4 @@
-package com.personthecat.cavegenerator.util;
+package org.caveapi.util;
 
 import org.jetbrains.annotations.NotNull;
 

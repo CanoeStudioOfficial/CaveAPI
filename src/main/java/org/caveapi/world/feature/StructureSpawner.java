@@ -1,4 +1,4 @@
-package com.personthecat.cavegenerator.world.feature;
+package org.caveapi.world.feature;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.Map;
 import java.util.Optional;
 
-import com.personthecat.cavegenerator.Main;
+import org.caveapi.Main;
 import lombok.extern.log4j.Log4j2;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.nbt.CompressedStreamTools;
@@ -19,9 +19,9 @@ import net.minecraft.world.gen.structure.template.PlacementSettings;
 import net.minecraft.world.gen.structure.template.Template;
 import net.minecraft.world.gen.structure.template.TemplateManager;
 import net.minecraftforge.fml.common.Loader;
-import com.personthecat.cavegenerator.util.Result;
-import static com.personthecat.cavegenerator.util.CommonMethods.*;
-import static com.personthecat.cavegenerator.io.SafeFileIO.*;
+import org.caveapi.util.Result;
+import static org.caveapi.util.CommonMethods.*;
+import static org.caveapi.io.SafeFileIO.*;
 
 @Log4j2
 public class StructureSpawner {

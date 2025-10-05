@@ -1,13 +1,10 @@
-package com.personthecat.cavegenerator.world;
+package org.caveapi.world;
 
-import com.personthecat.cavegenerator.world.feature.PillarGenerator;
-import com.personthecat.cavegenerator.world.feature.StalactiteGenerator;
-import com.personthecat.cavegenerator.world.feature.StructureGenerator;
 import com.personthecat.cavegenerator.world.generator.*;
 import net.minecraft.world.biome.Biome;
+import org.caveapi.world.generator.PrimerContext;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 

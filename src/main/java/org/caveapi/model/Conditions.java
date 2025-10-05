@@ -1,7 +1,7 @@
-package com.personthecat.cavegenerator.model;
+package org.caveapi.model;
 
-import com.personthecat.cavegenerator.data.ConditionSettings;
-import com.personthecat.cavegenerator.noise.DummyGenerator;
+import org.caveapi.data.ConditionSettings;
+import org.caveapi.noise.DummyGenerator;
 import fastnoise.FastNoise;
 import it.unimi.dsi.fastutil.ints.IntArrayList;
 import it.unimi.dsi.fastutil.ints.IntList;

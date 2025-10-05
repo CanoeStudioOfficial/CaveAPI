@@ -1,4 +1,4 @@
-package com.personthecat.cavegenerator.world;
+package org.caveapi.world;
 
 /**
  * Generates noise quickly. Useful when shape isn't so important.

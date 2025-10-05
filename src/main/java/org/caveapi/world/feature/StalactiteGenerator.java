@@ -1,8 +1,8 @@
-package com.personthecat.cavegenerator.world.feature;
+package org.caveapi.world.feature;
 
-import com.personthecat.cavegenerator.data.StalactiteSettings;
-import com.personthecat.cavegenerator.model.Range;
-import com.personthecat.cavegenerator.util.XoRoShiRo;
+import org.caveapi.data.StalactiteSettings;
+import org.caveapi.model.Range;
+import org.caveapi.util.XoRoShiRo;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;

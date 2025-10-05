@@ -1,4 +1,4 @@
-package com.personthecat.cavegenerator.config;
+package org.caveapi.config;
 
 import lombok.AllArgsConstructor;
 import org.hjson.HjsonOptions;
@@ -12,7 +12,7 @@ import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static com.personthecat.cavegenerator.util.CommonMethods.*;
+import static org.caveapi.util.CommonMethods.*;
 
 public class ReferenceHelper {
 

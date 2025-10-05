@@ -1,6 +1,6 @@
-package com.personthecat.cavegenerator.world.generator;
+package org.caveapi.world.generator;
 
-import com.personthecat.cavegenerator.util.PositionFlags;
+import org.caveapi.util.PositionFlags;
 
 public class SphereData {
 

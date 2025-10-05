@@ -1,14 +1,11 @@
-package com.personthecat.cavegenerator.world.generator;
+package org.caveapi.world.generator;
 
-import com.personthecat.cavegenerator.Main;
-import com.personthecat.cavegenerator.config.ConfigFile;
-import com.personthecat.cavegenerator.data.TunnelSettings;
-import com.personthecat.cavegenerator.noise.CachedNoiseHelper;
-import com.personthecat.cavegenerator.world.BiomeSearch;
-import com.personthecat.cavegenerator.world.GeneratorController;
-import com.personthecat.cavegenerator.world.HeightMapLocator;
-import com.sun.javafx.geom.Vec2d;
-import net.minecraft.util.math.BlockPos;
+import org.caveapi.Main;
+import org.caveapi.config.ConfigFile;
+import org.caveapi.noise.CachedNoiseHelper;
+import org.caveapi.world.BiomeSearch;
+import org.caveapi.world.GeneratorController;
+import org.caveapi.world.HeightMapLocator;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.chunk.ChunkPrimer;
@@ -19,7 +16,6 @@ import net.minecraftforge.common.DimensionManager;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 

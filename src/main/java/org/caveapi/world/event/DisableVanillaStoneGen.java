@@ -1,8 +1,6 @@
-package com.personthecat.cavegenerator.world.event;
+package org.caveapi.world.event;
 
-import com.personthecat.cavegenerator.CaveInit;
-import com.personthecat.cavegenerator.Main;
-import com.personthecat.cavegenerator.config.ConfigFile;
+import org.caveapi.config.ConfigFile;
 import net.minecraftforge.event.terraingen.OreGenEvent.GenerateMinable;
 import net.minecraftforge.fml.common.eventhandler.Event.Result;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;

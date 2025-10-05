@@ -1,12 +1,8 @@
-package com.personthecat.cavegenerator.world;
+package org.caveapi.world;
 
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.biome.Biome;
-import net.minecraftforge.common.DimensionManager;
-
-import java.util.LinkedHashMap;
 
 
 public class BiomeCache {

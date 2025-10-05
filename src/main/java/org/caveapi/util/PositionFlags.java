@@ -1,4 +1,4 @@
-package com.personthecat.cavegenerator.util;
+package org.caveapi.util;
 
 /**
  * A reusable list of <em>relative</em> block positions stored in an array of raw integers.

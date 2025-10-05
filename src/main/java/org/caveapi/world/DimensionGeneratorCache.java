@@ -1,12 +1,10 @@
-package com.personthecat.cavegenerator.world;
+package org.caveapi.world;
 
-import com.personthecat.cavegenerator.world.feature.PillarGenerator;
-import com.personthecat.cavegenerator.world.feature.StalactiteGenerator;
-import com.personthecat.cavegenerator.world.feature.StructureGenerator;
+import org.caveapi.world.feature.PillarGenerator;
+import org.caveapi.world.feature.StalactiteGenerator;
+import org.caveapi.world.feature.StructureGenerator;
 import com.personthecat.cavegenerator.world.generator.*;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.WorldProvider;
-import net.minecraft.world.biome.Biome;
+import org.caveapi.world.generator.*;
 
 import java.util.HashMap;
 import java.util.List;

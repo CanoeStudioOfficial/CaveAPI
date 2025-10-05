@@ -1,9 +1,9 @@
-package com.personthecat.cavegenerator;
+package org.caveapi;
 
-import com.personthecat.cavegenerator.config.CavePreset;
-import com.personthecat.cavegenerator.config.ConfigFile;
-import com.personthecat.cavegenerator.config.PresetReader;
-import com.personthecat.cavegenerator.util.HjsonTools;
+import org.caveapi.config.CavePreset;
+import org.caveapi.config.ConfigFile;
+import org.caveapi.config.PresetReader;
+import org.caveapi.util.HjsonTools;
 import lombok.extern.log4j.Log4j2;
 import net.minecraftforge.fml.common.Loader;
 
@@ -14,11 +14,11 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Optional;
 
-import static com.personthecat.cavegenerator.util.CommonMethods.empty;
-import static com.personthecat.cavegenerator.util.CommonMethods.extension;
-import static com.personthecat.cavegenerator.util.CommonMethods.full;
-import static com.personthecat.cavegenerator.io.SafeFileIO.ensureDirExists;
-import static com.personthecat.cavegenerator.io.SafeFileIO.fileExists;
+import static org.caveapi.util.CommonMethods.empty;
+import static org.caveapi.util.CommonMethods.extension;
+import static org.caveapi.util.CommonMethods.full;
+import static org.caveapi.io.SafeFileIO.ensureDirExists;
+import static org.caveapi.io.SafeFileIO.fileExists;
 
 @Log4j2
 public class CaveInit {

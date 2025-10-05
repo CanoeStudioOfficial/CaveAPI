@@ -1,4 +1,4 @@
-package com.personthecat.cavegenerator.world.roads;
+package org.caveapi.world.roads;
 
 public class RoadLockedNodes {
 

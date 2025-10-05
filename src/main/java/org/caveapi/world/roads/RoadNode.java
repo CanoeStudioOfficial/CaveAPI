@@ -1,9 +1,4 @@
-package com.personthecat.cavegenerator.world.roads;
-
-import com.personthecat.cavegenerator.world.data.WorldData;
-import com.personthecat.cavegenerator.world.data.WorldDataHandler;
-import net.minecraft.world.World;
-import net.minecraft.world.chunk.Chunk;
+package org.caveapi.world.roads;
 
 public class RoadNode {
 

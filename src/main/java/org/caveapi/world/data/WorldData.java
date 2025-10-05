@@ -1,4 +1,4 @@
-package com.personthecat.cavegenerator.world.data;
+package org.caveapi.world.data;
 
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.common.util.INBTSerializable;

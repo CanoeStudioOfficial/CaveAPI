@@ -1,4 +1,4 @@
-package com.personthecat.cavegenerator.model;
+package org.caveapi.model;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
