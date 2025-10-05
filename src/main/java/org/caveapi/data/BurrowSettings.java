@@ -5,9 +5,9 @@ import lombok.Builder;
 import lombok.Builder.Default;
 import lombok.experimental.FieldDefaults;
 import lombok.experimental.FieldNameConstants;
+import net.hjson.JsonObject;
 import org.caveapi.model.Range;
 import org.caveapi.util.HjsonMapper;
-import net.hjson.JsonObject;
 
 import java.util.Optional;
 

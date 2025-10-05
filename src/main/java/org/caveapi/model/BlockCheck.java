@@ -4,13 +4,13 @@ import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.experimental.FieldDefaults;
 import lombok.experimental.FieldNameConstants;
+import net.hjson.JsonArray;
+import net.hjson.JsonObject;
+import net.hjson.JsonValue;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
 import org.caveapi.data.StructureSettings;
 import org.caveapi.util.HjsonMapper;
-import net.hjson.JsonArray;
-import net.hjson.JsonObject;
-import net.hjson.JsonValue;
 
 import java.util.List;
 

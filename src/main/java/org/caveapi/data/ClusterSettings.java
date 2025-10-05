@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Builder.Default;
 import lombok.experimental.FieldDefaults;
 import lombok.experimental.FieldNameConstants;
+import net.hjson.JsonObject;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -13,7 +14,6 @@ import org.apache.commons.lang3.tuple.Pair;
 import org.caveapi.config.CavePreset;
 import org.caveapi.model.Range;
 import org.caveapi.util.HjsonMapper;
-import net.hjson.JsonObject;
 
 import java.util.Collections;
 import java.util.List;

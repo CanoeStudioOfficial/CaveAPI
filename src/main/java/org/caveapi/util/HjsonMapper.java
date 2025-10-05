@@ -2,6 +2,8 @@ package org.caveapi.util;
 
 import fastnoise.FastNoise.*;
 import lombok.AllArgsConstructor;
+import net.hjson.JsonObject;
+import net.hjson.JsonValue;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
@@ -11,8 +13,6 @@ import org.caveapi.model.Direction;
 import org.caveapi.model.FloatRange;
 import org.caveapi.model.Range;
 import org.caveapi.model.ScalableFloat;
-import net.hjson.JsonObject;
-import net.hjson.JsonValue;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,6 +1,8 @@
 package org.caveapi.commands;
 
 import mcp.MethodsReturnNonnullByDefault;
+import net.hjson.JsonObject;
+import net.hjson.JsonValue;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.settings.GameSettings;
 import net.minecraft.command.CommandBase;
@@ -22,8 +24,8 @@ import net.minecraftforge.fml.common.Loader;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.tuple.Pair;
-import org.caveapi.CaveInit;
 import org.caveapi.CaveAPI;
+import org.caveapi.CaveInit;
 import org.caveapi.config.*;
 import org.caveapi.noise.CachedNoiseHelper;
 import org.caveapi.util.Calculator;
@@ -31,8 +33,6 @@ import org.caveapi.util.CaveLinter;
 import org.caveapi.util.HjsonTools;
 import org.caveapi.world.GeneratorController;
 import org.caveapi.world.feature.StructureSpawner;
-import net.hjson.JsonObject;
-import net.hjson.JsonValue;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.awt.*;

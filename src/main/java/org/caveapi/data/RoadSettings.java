@@ -5,12 +5,12 @@ import lombok.Builder;
 import lombok.Builder.Default;
 import lombok.experimental.FieldDefaults;
 import lombok.experimental.FieldNameConstants;
+import net.hjson.JsonObject;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import org.caveapi.config.CavePreset;
 import org.caveapi.model.Range;
 import org.caveapi.util.HjsonMapper;
-import net.hjson.JsonObject;
 
 import java.util.Collections;
 import java.util.List;

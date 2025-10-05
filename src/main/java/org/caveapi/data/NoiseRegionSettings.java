@@ -7,6 +7,7 @@ import lombok.Builder;
 import lombok.Builder.Default;
 import lombok.experimental.FieldDefaults;
 import lombok.experimental.FieldNameConstants;
+import net.hjson.JsonObject;
 import net.minecraft.world.World;
 import org.caveapi.config.PresetTester;
 import org.caveapi.model.FloatRange;
@@ -15,7 +16,6 @@ import org.caveapi.noise.CachedNoiseGenerator;
 import org.caveapi.noise.DummyGenerator;
 import org.caveapi.util.HjsonMapper;
 import org.caveapi.util.XoRoShiRo;
-import net.hjson.JsonObject;
 
 import java.util.Optional;
 import java.util.Random;

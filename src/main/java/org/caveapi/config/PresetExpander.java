@@ -1,11 +1,11 @@
 package org.caveapi.config;
 
-import org.apache.commons.lang3.ArrayUtils;
-import org.caveapi.util.Calculator;
-import org.caveapi.util.HjsonTools;
 import net.hjson.JsonArray;
 import net.hjson.JsonObject;
 import net.hjson.JsonValue;
+import org.apache.commons.lang3.ArrayUtils;
+import org.caveapi.util.Calculator;
+import org.caveapi.util.HjsonTools;
 
 import java.io.File;
 import java.util.HashSet;

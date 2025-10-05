@@ -1,10 +1,10 @@
 package org.caveapi.config;
 
-import org.caveapi.CaveInit;
-import org.caveapi.util.HjsonTools;
 import net.hjson.JsonArray;
 import net.hjson.JsonObject;
 import net.hjson.JsonValue;
+import org.caveapi.CaveInit;
+import org.caveapi.util.HjsonTools;
 
 import java.io.File;
 import java.util.*;

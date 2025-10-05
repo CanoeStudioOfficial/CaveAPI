@@ -1,6 +1,7 @@
 package org.caveapi.config;
 
 import lombok.extern.log4j.Log4j2;
+import net.hjson.JsonObject;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import org.apache.logging.log4j.Level;
@@ -9,7 +10,6 @@ import org.caveapi.model.Direction;
 import org.caveapi.model.FloatRange;
 import org.caveapi.model.Range;
 import org.caveapi.model.ScalableFloat;
-import net.hjson.JsonObject;
 
 import java.util.List;
 

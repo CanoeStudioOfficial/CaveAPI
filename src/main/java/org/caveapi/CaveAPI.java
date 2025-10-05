@@ -1,6 +1,5 @@
 package org.caveapi;
 
-import javafx.concurrent.Task;
 import lombok.extern.log4j.Log4j2;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.structure.template.Template;
