@@ -7,6 +7,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
+import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
@@ -17,6 +18,7 @@ import org.caveapi.commands.CommandCave;
 import org.caveapi.config.CavePreset;
 import org.caveapi.io.JarFiles;
 import org.caveapi.noise.CachedNoiseHelper;
+import org.caveapi.util.proxy.CommonProxy;
 import org.caveapi.world.GeneratorController;
 import org.caveapi.world.data.WorldDataHandler;
 import org.caveapi.world.event.DisablePopulateChunkEvent;
@@ -39,6 +41,10 @@ import java.util.TreeMap;
 )
 @Log4j2
 public class CaveAPI {
+
+
+    @SidedProxy(clientSide = Tags.ROOT_PACKAGE+".util.proxy.ClientProxy", serverSide = Tags.ROOT_PACKAGE+".util.proxy.ServerProxy")
+    public static CommonProxy proxy;
 
     /** The main instance of this mod, as required by Forge. */
     @Instance public static CaveAPI instance;

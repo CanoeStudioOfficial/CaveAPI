@@ -1,5 +1,6 @@
 package org.caveapi.util;
 
+import net.hjson.*;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.Mirror;
