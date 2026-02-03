@@ -1,7 +1,7 @@
-package org.caveapi;
+package org.canoestudio.caveapi;
 
 import net.minecraftforge.fml.common.Mod;
-import org.caveapi.caveapi.Tags;
+import org.canoestudio.caveapi.caveapi.Tags;
 
 @Mod(
     modid = Tags.MOD_ID,
