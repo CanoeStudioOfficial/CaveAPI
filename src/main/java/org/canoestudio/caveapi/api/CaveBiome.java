@@ -1,11 +1,15 @@
 package org.canoestudio.caveapi.api;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.ChunkPrimer;
+import org.canoestudio.caveapi.compat.UniversalCompatHandler;
 import net.minecraftforge.registries.IForgeRegistryEntry;
 
 import java.util.ArrayList;
@@ -28,10 +32,10 @@ public class CaveBiome extends IForgeRegistryEntry.Impl<CaveBiome> {
     private final boolean hasVegetation;
     private final int minY;
     private final int maxY;
-    private final List<Biome.SpawnListEntry> spawnableMonsterList = new ArrayList<>();
-    private final List<Biome.SpawnListEntry> spawnableCreatureList = new ArrayList<>();
-    private final List<Biome.SpawnListEntry> spawnableCaveCreatureList = new ArrayList<>();
-    private final List<Biome.SpawnListEntry> spawnableWaterCreatureList = new ArrayList<>();
+    protected List<Biome.SpawnListEntry> spawnableMonsterList = new ArrayList<>();
+    protected List<Biome.SpawnListEntry> spawnableCreatureList = new ArrayList<>();
+    protected List<Biome.SpawnListEntry> spawnableCaveCreatureList = new ArrayList<>();
+    protected List<Biome.SpawnListEntry> spawnableWaterCreatureList = new ArrayList<>();
     
     /**
      * Create a new cave biome
@@ -157,6 +161,29 @@ public class CaveBiome extends IForgeRegistryEntry.Impl<CaveBiome> {
         }
     }
     
+    /**
+     * Get the block state for a specific part of the cave at a position.
+     * Allows for compatibility with mods like Underground Biomes.
+     * 
+     * @param world The world
+     * @param pos The position
+     * @param type 0: wall, 1: floor, 2: ceiling
+     * @return The block state to use
+     */
+    public IBlockState getBlockStateAt(World world, BlockPos pos, int type) {
+        IBlockState baseState;
+        // By default, return the configured block
+        switch (type) {
+            case 0: baseState = getWallBlock().getDefaultState(); break;
+            case 1: baseState = getFloorBlock().getDefaultState(); break;
+            case 2: baseState = getCeilingBlock().getDefaultState(); break;
+            default: baseState = Blocks.STONE.getDefaultState(); break;
+        }
+        
+        // Apply universal remappers for cross-mod compatibility
+        return UniversalCompatHandler.applyRemappers(world, pos, baseState, type);
+    }
+
     /**
      * Called when generating this biome
      * @param random Random number generator

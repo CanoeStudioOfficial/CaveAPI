@@ -6,6 +6,7 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 import org.canoestudio.caveapi.caveregister.CaveBiomeRegistry;
+import org.canoestudio.caveapi.compat.ModCompatManager;
 
 @Mod(
     modid = Tags.MOD_ID,
@@ -28,7 +29,8 @@ public class CaveAPI {
     
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
-        // Additional initialization logic
+        // Initialize cross-mod compatibility
+        ModCompatManager.init();
     }
     
     @Mod.EventHandler
