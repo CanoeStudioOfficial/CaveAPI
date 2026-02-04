@@ -9,6 +9,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.ChunkPrimer;
+import org.canoestudio.caveapi.caveregister.OreStoneRegistryImpl;
 import org.canoestudio.caveapi.compat.UniversalCompatHandler;
 import net.minecraftforge.registries.IForgeRegistryEntry;
 
@@ -178,6 +179,12 @@ public class CaveBiome extends IForgeRegistryEntry.Impl<CaveBiome> {
             case 1: baseState = getFloorBlock().getDefaultState(); break;
             case 2: baseState = getCeilingBlock().getDefaultState(); break;
             default: baseState = Blocks.STONE.getDefaultState(); break;
+        }
+
+        // Apply ore-stone association if the current block is an ore
+        if (OreStoneRegistryImpl.getInstance().getRegisteredOres().contains(baseState.getBlock())) {
+            Block adaptiveOre = OreStoneRegistryImpl.getInstance().getOreInStone(baseState.getBlock(), getWallBlock());
+            baseState = adaptiveOre.getDefaultState();
         }
         
         // Apply universal remappers for cross-mod compatibility
