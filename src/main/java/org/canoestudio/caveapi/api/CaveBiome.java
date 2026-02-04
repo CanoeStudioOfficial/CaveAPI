@@ -1,10 +1,15 @@
 package org.canoestudio.caveapi.api;
 
 import net.minecraft.block.Block;
+import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.biome.Biome;
+import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraftforge.registries.IForgeRegistryEntry;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -23,6 +28,10 @@ public class CaveBiome extends IForgeRegistryEntry.Impl<CaveBiome> {
     private final boolean hasVegetation;
     private final int minY;
     private final int maxY;
+    private final List<Biome.SpawnListEntry> spawnableMonsterList = new ArrayList<>();
+    private final List<Biome.SpawnListEntry> spawnableCreatureList = new ArrayList<>();
+    private final List<Biome.SpawnListEntry> spawnableCaveCreatureList = new ArrayList<>();
+    private final List<Biome.SpawnListEntry> spawnableWaterCreatureList = new ArrayList<>();
     
     /**
      * Create a new cave biome
@@ -132,6 +141,21 @@ public class CaveBiome extends IForgeRegistryEntry.Impl<CaveBiome> {
     public int getMaxY() {
         return maxY;
     }
+
+    /**
+     * Get the spawnable list for a specific creature type
+     * @param creatureType The creature type
+     * @return List of spawn entries
+     */
+    public List<Biome.SpawnListEntry> getSpawnableList(EnumCreatureType creatureType) {
+        switch (creatureType) {
+            case MONSTER: return this.spawnableMonsterList;
+            case CREATURE: return this.spawnableCreatureList;
+            case AMBIENT: return this.spawnableCaveCreatureList;
+            case WATER_CREATURE: return this.spawnableWaterCreatureList;
+            default: return new ArrayList<>();
+        }
+    }
     
     /**
      * Called when generating this biome
@@ -142,6 +166,26 @@ public class CaveBiome extends IForgeRegistryEntry.Impl<CaveBiome> {
      */
     public void onGenerate(Random random, int x, int y, int z) {
         // Default implementation is empty, can be overridden by subclasses
+    }
+
+    /**
+     * High-performance generation method using ChunkPrimer.
+     * Called for each block during base terrain generation to allow direct data access.
+     * 
+     * @param primer The chunk primer to set blocks in
+     * @param localX Local X coordinate (0-15)
+     * @param y Y coordinate (0-255)
+     * @param localZ Local Z coordinate (0-15)
+     * @param chunkX Chunk X coordinate
+     * @param chunkZ Chunk Z coordinate
+     * @param type The type of block to place (0: wall, 1: floor, 2: ceiling)
+     */
+    public void generateBase(ChunkPrimer primer, int localX, int y, int localZ, int chunkX, int chunkZ, int type) {
+        switch (type) {
+            case 0: primer.setBlockState(localX, y, localZ, getWallBlock().getDefaultState()); break;
+            case 1: primer.setBlockState(localX, y, localZ, getFloorBlock().getDefaultState()); break;
+            case 2: primer.setBlockState(localX, y, localZ, getCeilingBlock().getDefaultState()); break;
+        }
     }
     
     /**
@@ -160,6 +204,10 @@ public class CaveBiome extends IForgeRegistryEntry.Impl<CaveBiome> {
         private boolean hasVegetation = false;
         private int minY = 1;
         private int maxY = 128;
+        private final List<Biome.SpawnListEntry> monsters = new ArrayList<>();
+        private final List<Biome.SpawnListEntry> creatures = new ArrayList<>();
+        private final List<Biome.SpawnListEntry> ambient = new ArrayList<>();
+        private final List<Biome.SpawnListEntry> waterCreatures = new ArrayList<>();
         
         /**
          * Create a new builder
@@ -262,6 +310,22 @@ public class CaveBiome extends IForgeRegistryEntry.Impl<CaveBiome> {
             this.maxY = Math.min(256, maxY);
             return this;
         }
+
+        /**
+         * Add a spawn entry to this biome
+         * @param creatureType Type of creature
+         * @param entry Spawn entry
+         * @return This builder
+         */
+        public Builder addSpawn(EnumCreatureType creatureType, Biome.SpawnListEntry entry) {
+            switch (creatureType) {
+                case MONSTER: this.monsters.add(entry); break;
+                case CREATURE: this.creatures.add(entry); break;
+                case AMBIENT: this.ambient.add(entry); break;
+                case WATER_CREATURE: this.waterCreatures.add(entry); break;
+            }
+            return this;
+        }
         
         /**
          * Build the cave biome
@@ -296,6 +360,10 @@ public class CaveBiome extends IForgeRegistryEntry.Impl<CaveBiome> {
                 this.hasVegetation = builder.hasVegetation;
                 this.minY = builder.minY;
                 this.maxY = builder.maxY;
+                this.spawnableMonsterList.addAll(builder.monsters);
+                this.spawnableCreatureList.addAll(builder.creatures);
+                this.spawnableCaveCreatureList.addAll(builder.ambient);
+                this.spawnableWaterCreatureList.addAll(builder.waterCreatures);
             }
             
             @Override
