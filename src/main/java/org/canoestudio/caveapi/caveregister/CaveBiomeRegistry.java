@@ -164,7 +164,6 @@ public class CaveBiomeRegistry extends IForgeRegistryEntry.Impl<CaveBiome> {
         .setMinY(1)
         .setMaxY(128)
         .build();
-        stoneCave.setRegistryName(stoneCave.getRegistryName());
         registry.register(stoneCave);
         BIOME_MAP.put(stoneCave.getRegistryName(), stoneCave);
         BIOME_NAME_MAP.put(stoneCave.getName().toLowerCase(), stoneCave);
@@ -184,7 +183,6 @@ public class CaveBiomeRegistry extends IForgeRegistryEntry.Impl<CaveBiome> {
         .setMinY(32)
         .setMaxY(64)
         .build();
-        dirtCave.setRegistryName(dirtCave.getRegistryName());
         registry.register(dirtCave);
         BIOME_MAP.put(dirtCave.getRegistryName(), dirtCave);
         BIOME_NAME_MAP.put(dirtCave.getName().toLowerCase(), dirtCave);
@@ -203,7 +201,6 @@ public class CaveBiomeRegistry extends IForgeRegistryEntry.Impl<CaveBiome> {
         .setMinY(1)
         .setMaxY(32)
         .build();
-        lavaCave.setRegistryName(lavaCave.getRegistryName());
         registry.register(lavaCave);
         BIOME_MAP.put(lavaCave.getRegistryName(), lavaCave);
         BIOME_NAME_MAP.put(lavaCave.getName().toLowerCase(), lavaCave);
@@ -222,7 +219,6 @@ public class CaveBiomeRegistry extends IForgeRegistryEntry.Impl<CaveBiome> {
         .setMinY(64)
         .setMaxY(128)
         .build();
-        iceCave.setRegistryName(iceCave.getRegistryName());
         registry.register(iceCave);
         BIOME_MAP.put(iceCave.getRegistryName(), iceCave);
         BIOME_NAME_MAP.put(iceCave.getName().toLowerCase(), iceCave);
