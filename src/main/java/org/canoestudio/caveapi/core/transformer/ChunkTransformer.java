@@ -10,10 +10,6 @@ import org.objectweb.asm.tree.*;
 public class ChunkTransformer implements IClassTransformer {
 
     private static final String CHUNK_CLASS = "net.minecraft.world.chunk.Chunk";
-    private static final String CHUNK_SRG = "aes";
-    
-    private static final String STORAGE_ARRAYS_SRG = "field_76645_j";
-    private static final String STORAGE_ARRAYS_MCP = "storageArrays";
     
     private static final String GET_BLOCK_STATE_SRG = "func_177435_g";
     private static final String SET_BLOCK_STATE_SRG = "func_177436_a";
@@ -24,12 +20,7 @@ public class ChunkTransformer implements IClassTransformer {
     private static final String GENERATE_SKYLIGHT_MAP_SRG = "func_76630_e";
     private static final String GET_HEIGHT_VALUE_SRG = "func_76627_g";
     private static final String GET_TOP_FILLED_SEGMENT_SRG = "func_76625_h";
-    
-    private static final String EXTENDED_BLOCK_STORAGE = "net/minecraft/world/chunk/storage/ExtendedBlockStorage";
-    private static final String BLOCK_POS = "net/minecraft/util/math/BlockPos";
-    private static final String I_BLOCK_STATE = "net/minecraft/block/state/IBlockState";
-    private static final String ENUM_SKY_BLOCK = "net/minecraft/world/EnumSkyBlock";
-    private static final String CHUNK_PRIMER = "net/minecraft/world/chunk/ChunkPrimer";
+    private static final String IS_EMPTY_BETWEEN_SRG = "func_76606_c";
 
     @Override
     public byte[] transform(String name, String transformedName, byte[] basicClass) {
@@ -59,6 +50,16 @@ public class ChunkTransformer implements IClassTransformer {
             String methodName = method.name;
             String methodDesc = method.desc;
             
+            if (methodName.equals("<init>")) {
+                transformConstructor(method);
+                continue;
+            }
+            
+            if (methodName.equals("<clinit>")) {
+                transformStaticInit(method);
+                continue;
+            }
+            
             if (methodName.equals(GET_BLOCK_STATE_INT_SRG) || methodName.equals("getBlockState")) {
                 if (methodDesc.equals("(III)Lnet/minecraft/block/state/IBlockState;")) {
                     transformGetBlockStateInt(method);
@@ -77,11 +78,23 @@ public class ChunkTransformer implements IClassTransformer {
                 transformGetLightSubtracted(method);
             } else if (methodName.equals(GENERATE_SKYLIGHT_MAP_SRG) || methodName.equals("generateSkylightMap")) {
                 transformGenerateSkylightMap(method);
-            } else if (methodName.equals("<init>")) {
-                if (methodDesc.contains("ChunkPrimer")) {
-                    transformChunkPrimerConstructor(method);
-                } else {
-                    transformConstructor(method);
+            } else if (methodName.equals(GET_HEIGHT_VALUE_SRG) || methodName.equals("getHeightValue")) {
+                transformGetHeightValue(method);
+            } else if (methodName.equals(GET_TOP_FILLED_SEGMENT_SRG) || methodName.equals("getTopFilledSegment")) {
+                transformGetTopFilledSegment(method);
+            } else if (methodName.equals(IS_EMPTY_BETWEEN_SRG) || methodName.equals("isEmptyBetween")) {
+                transformIsEmptyBetween(method);
+            }
+        }
+    }
+    
+    private void transformStaticInit(MethodNode method) {
+        AbstractInsnNode[] insns = method.instructions.toArray();
+        for (AbstractInsnNode insn : insns) {
+            if (insn.getOpcode() == Opcodes.BIPUSH) {
+                IntInsnNode intInsn = (IntInsnNode) insn;
+                if (intInsn.operand == 16) {
+                    method.instructions.set(insn, new IntInsnNode(Opcodes.BIPUSH, HeightConfig.CUBE_COUNT));
                 }
             }
         }
@@ -89,43 +102,18 @@ public class ChunkTransformer implements IClassTransformer {
     
     private void transformConstructor(MethodNode method) {
         AbstractInsnNode[] insns = method.instructions.toArray();
-        for (AbstractInsnNode insn : insns) {
-            if (insn.getOpcode() == Opcodes.BIPUSH) {
-                IntInsnNode intInsn = (IntInsnNode) insn;
-                if (intInsn.operand == 16) {
-                    intInsn.operand = HeightConfig.CUBE_COUNT;
-                }
-            } else if (insn.getOpcode() == Opcodes.SIPUSH) {
-                IntInsnNode intInsn = (IntInsnNode) insn;
-                if (intInsn.operand == 256) {
-                    intInsn.operand = HeightConfig.TOTAL_HEIGHT;
-                }
-            }
-        }
-    }
-    
-    private void transformChunkPrimerConstructor(MethodNode method) {
-        AbstractInsnNode[] insns = method.instructions.toArray();
         for (int i = 0; i < insns.length; i++) {
             AbstractInsnNode insn = insns[i];
             
             if (insn.getOpcode() == Opcodes.BIPUSH) {
                 IntInsnNode intInsn = (IntInsnNode) insn;
                 if (intInsn.operand == 16) {
-                    AbstractInsnNode next = insn.getNext();
-                    if (next != null && next.getOpcode() == Opcodes.ISTORE) {
-                        intInsn.operand = HeightConfig.CUBE_COUNT;
-                    }
+                    method.instructions.set(insn, new IntInsnNode(Opcodes.BIPUSH, HeightConfig.CUBE_COUNT));
                 }
             } else if (insn.getOpcode() == Opcodes.SIPUSH) {
                 IntInsnNode intInsn = (IntInsnNode) insn;
                 if (intInsn.operand == 256) {
-                    intInsn.operand = HeightConfig.TOTAL_HEIGHT;
-                }
-            } else if (insn.getOpcode() == Opcodes.ICONST_0) {
-                AbstractInsnNode prev = insn.getPrevious();
-                if (prev != null && prev.getOpcode() == Opcodes.ISTORE) {
-                    method.instructions.set(insn, new LdcInsnNode(HeightConfig.MIN_HEIGHT));
+                    method.instructions.set(insn, new IntInsnNode(Opcodes.SIPUSH, HeightConfig.TOTAL_HEIGHT));
                 }
             }
         }
@@ -133,41 +121,24 @@ public class ChunkTransformer implements IClassTransformer {
     
     private void transformGetBlockStateInt(MethodNode method) {
         AbstractInsnNode[] insns = method.instructions.toArray();
-        for (int i = 0; i < insns.length; i++) {
-            AbstractInsnNode insn = insns[i];
-            
-            if (insn.getOpcode() == Opcodes.ILOAD) {
-                VarInsnNode varInsn = (VarInsnNode) insn;
-                if (varInsn.var == 2) {
-                    AbstractInsnNode next = insn.getNext();
-                    if (next != null && next.getOpcode() == Opcodes.IFGE) {
-                        JumpInsnNode jump = (JumpInsnNode) next;
-                        method.instructions.insertBefore(insn, new VarInsnNode(Opcodes.ILOAD, 2));
-                        method.instructions.insertBefore(insn, new LdcInsnNode(HeightConfig.MIN_HEIGHT));
-                        LabelNode newLabel = new LabelNode();
-                        method.instructions.insertBefore(insn, new JumpInsnNode(Opcodes.IF_ICMPLT, newLabel));
-                        method.instructions.insertBefore(insn, newLabel);
-                    }
-                }
-            }
-            
+        for (AbstractInsnNode insn : insns) {
             if (insn.getOpcode() == Opcodes.BIPUSH) {
                 IntInsnNode intInsn = (IntInsnNode) insn;
                 if (intInsn.operand == 16) {
-                    method.instructions.set(insn, new LdcInsnNode(HeightConfig.CUBE_COUNT));
+                    method.instructions.set(insn, new IntInsnNode(Opcodes.BIPUSH, HeightConfig.CUBE_COUNT));
                 }
             }
             
             if (insn.getOpcode() == Opcodes.SIPUSH) {
                 IntInsnNode intInsn = (IntInsnNode) insn;
                 if (intInsn.operand == 256) {
-                    method.instructions.set(insn, new LdcInsnNode(HeightConfig.MAX_HEIGHT));
+                    method.instructions.set(insn, new IntInsnNode(Opcodes.SIPUSH, HeightConfig.MAX_HEIGHT));
                 }
             }
             
             if (insn.getOpcode() == Opcodes.ICONST_0) {
-                AbstractInsnNode prev = insn.getPrevious();
-                if (prev != null && prev.getOpcode() == Opcodes.IF_ICMPGE) {
+                AbstractInsnNode next = insn.getNext();
+                if (next != null && next.getOpcode() == Opcodes.IF_ICMPLT) {
                     method.instructions.set(insn, new LdcInsnNode(HeightConfig.MIN_HEIGHT));
                 }
             }
@@ -180,13 +151,13 @@ public class ChunkTransformer implements IClassTransformer {
             if (insn.getOpcode() == Opcodes.SIPUSH) {
                 IntInsnNode intInsn = (IntInsnNode) insn;
                 if (intInsn.operand == 256) {
-                    method.instructions.set(insn, new LdcInsnNode(HeightConfig.MAX_HEIGHT));
+                    method.instructions.set(insn, new IntInsnNode(Opcodes.SIPUSH, HeightConfig.MAX_HEIGHT));
                 }
             }
             if (insn.getOpcode() == Opcodes.BIPUSH) {
                 IntInsnNode intInsn = (IntInsnNode) insn;
                 if (intInsn.operand == 16) {
-                    method.instructions.set(insn, new LdcInsnNode(HeightConfig.CUBE_COUNT));
+                    method.instructions.set(insn, new IntInsnNode(Opcodes.BIPUSH, HeightConfig.CUBE_COUNT));
                 }
             }
         }
@@ -198,13 +169,13 @@ public class ChunkTransformer implements IClassTransformer {
             if (insn.getOpcode() == Opcodes.SIPUSH) {
                 IntInsnNode intInsn = (IntInsnNode) insn;
                 if (intInsn.operand == 256) {
-                    method.instructions.set(insn, new LdcInsnNode(HeightConfig.MAX_HEIGHT));
+                    method.instructions.set(insn, new IntInsnNode(Opcodes.SIPUSH, HeightConfig.MAX_HEIGHT));
                 }
             }
             if (insn.getOpcode() == Opcodes.BIPUSH) {
                 IntInsnNode intInsn = (IntInsnNode) insn;
                 if (intInsn.operand == 16) {
-                    method.instructions.set(insn, new LdcInsnNode(HeightConfig.CUBE_COUNT));
+                    method.instructions.set(insn, new IntInsnNode(Opcodes.BIPUSH, HeightConfig.CUBE_COUNT));
                 }
             }
         }
@@ -216,13 +187,13 @@ public class ChunkTransformer implements IClassTransformer {
             if (insn.getOpcode() == Opcodes.SIPUSH) {
                 IntInsnNode intInsn = (IntInsnNode) insn;
                 if (intInsn.operand == 256) {
-                    method.instructions.set(insn, new LdcInsnNode(HeightConfig.MAX_HEIGHT));
+                    method.instructions.set(insn, new IntInsnNode(Opcodes.SIPUSH, HeightConfig.MAX_HEIGHT));
                 }
             }
             if (insn.getOpcode() == Opcodes.BIPUSH) {
                 IntInsnNode intInsn = (IntInsnNode) insn;
                 if (intInsn.operand == 16) {
-                    method.instructions.set(insn, new LdcInsnNode(HeightConfig.CUBE_COUNT));
+                    method.instructions.set(insn, new IntInsnNode(Opcodes.BIPUSH, HeightConfig.CUBE_COUNT));
                 }
             }
         }
@@ -234,13 +205,13 @@ public class ChunkTransformer implements IClassTransformer {
             if (insn.getOpcode() == Opcodes.SIPUSH) {
                 IntInsnNode intInsn = (IntInsnNode) insn;
                 if (intInsn.operand == 256) {
-                    method.instructions.set(insn, new LdcInsnNode(HeightConfig.MAX_HEIGHT));
+                    method.instructions.set(insn, new IntInsnNode(Opcodes.SIPUSH, HeightConfig.MAX_HEIGHT));
                 }
             }
             if (insn.getOpcode() == Opcodes.BIPUSH) {
                 IntInsnNode intInsn = (IntInsnNode) insn;
                 if (intInsn.operand == 16) {
-                    method.instructions.set(insn, new LdcInsnNode(HeightConfig.CUBE_COUNT));
+                    method.instructions.set(insn, new IntInsnNode(Opcodes.BIPUSH, HeightConfig.CUBE_COUNT));
                 }
             }
         }
@@ -252,13 +223,13 @@ public class ChunkTransformer implements IClassTransformer {
             if (insn.getOpcode() == Opcodes.SIPUSH) {
                 IntInsnNode intInsn = (IntInsnNode) insn;
                 if (intInsn.operand == 256) {
-                    method.instructions.set(insn, new LdcInsnNode(HeightConfig.MAX_HEIGHT));
+                    method.instructions.set(insn, new IntInsnNode(Opcodes.SIPUSH, HeightConfig.MAX_HEIGHT));
                 }
             }
             if (insn.getOpcode() == Opcodes.BIPUSH) {
                 IntInsnNode intInsn = (IntInsnNode) insn;
                 if (intInsn.operand == 16) {
-                    method.instructions.set(insn, new LdcInsnNode(HeightConfig.CUBE_COUNT));
+                    method.instructions.set(insn, new IntInsnNode(Opcodes.BIPUSH, HeightConfig.CUBE_COUNT));
                 }
             }
         }
@@ -270,7 +241,49 @@ public class ChunkTransformer implements IClassTransformer {
             if (insn.getOpcode() == Opcodes.BIPUSH) {
                 IntInsnNode intInsn = (IntInsnNode) insn;
                 if (intInsn.operand == 16) {
-                    method.instructions.set(insn, new LdcInsnNode(HeightConfig.CUBE_COUNT));
+                    method.instructions.set(insn, new IntInsnNode(Opcodes.BIPUSH, HeightConfig.CUBE_COUNT));
+                }
+            }
+        }
+    }
+    
+    private void transformGetHeightValue(MethodNode method) {
+        AbstractInsnNode[] insns = method.instructions.toArray();
+        for (AbstractInsnNode insn : insns) {
+            if (insn.getOpcode() == Opcodes.BIPUSH) {
+                IntInsnNode intInsn = (IntInsnNode) insn;
+                if (intInsn.operand == 16) {
+                    method.instructions.set(insn, new IntInsnNode(Opcodes.BIPUSH, HeightConfig.CUBE_COUNT));
+                }
+            }
+        }
+    }
+    
+    private void transformGetTopFilledSegment(MethodNode method) {
+        AbstractInsnNode[] insns = method.instructions.toArray();
+        for (AbstractInsnNode insn : insns) {
+            if (insn.getOpcode() == Opcodes.BIPUSH) {
+                IntInsnNode intInsn = (IntInsnNode) insn;
+                if (intInsn.operand == 16) {
+                    method.instructions.set(insn, new IntInsnNode(Opcodes.BIPUSH, HeightConfig.CUBE_COUNT));
+                }
+            }
+        }
+    }
+    
+    private void transformIsEmptyBetween(MethodNode method) {
+        AbstractInsnNode[] insns = method.instructions.toArray();
+        for (AbstractInsnNode insn : insns) {
+            if (insn.getOpcode() == Opcodes.SIPUSH) {
+                IntInsnNode intInsn = (IntInsnNode) insn;
+                if (intInsn.operand == 256) {
+                    method.instructions.set(insn, new IntInsnNode(Opcodes.SIPUSH, HeightConfig.MAX_HEIGHT));
+                }
+            }
+            if (insn.getOpcode() == Opcodes.BIPUSH) {
+                IntInsnNode intInsn = (IntInsnNode) insn;
+                if (intInsn.operand == 16) {
+                    method.instructions.set(insn, new IntInsnNode(Opcodes.BIPUSH, HeightConfig.CUBE_COUNT));
                 }
             }
         }
