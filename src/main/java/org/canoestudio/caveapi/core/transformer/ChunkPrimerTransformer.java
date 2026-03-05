@@ -18,6 +18,8 @@ public class ChunkPrimerTransformer implements IClassTransformer {
     
     private static final int OLD_DATA_SIZE = 65536;
     private static final int NEW_DATA_SIZE = 16 * HeightConfig.TOTAL_HEIGHT * 16;
+    
+    private static final String BLOCKS_FIELD_SRG = "field_177860_a";
 
     @Override
     public byte[] transform(String name, String transformedName, byte[] basicClass) {
@@ -49,9 +51,9 @@ public class ChunkPrimerTransformer implements IClassTransformer {
             if (methodName.equals("<init>")) {
                 transformConstructor(method);
             } else if (methodName.equals(GET_BLOCK_STATE_SRG) || methodName.equals("getBlockState")) {
-                transformGetBlockState(method);
+                transformGetBlockState(method, classNode);
             } else if (methodName.equals(SET_BLOCK_STATE_SRG) || methodName.equals("setBlockState")) {
-                transformSetBlockState(method);
+                transformSetBlockState(method, classNode);
             } else if (methodName.equals(FIND_GROUND_BLOCK_IDX_SRG) || methodName.equals("findGroundBlockIdx")) {
                 transformFindGroundBlockIdx(method);
             }
@@ -73,71 +75,55 @@ public class ChunkPrimerTransformer implements IClassTransformer {
         }
     }
     
-    private void transformGetBlockState(MethodNode method) {
-        InsnList newInstructions = new InsnList();
-        LabelNode labelValid = new LabelNode();
-        LabelNode labelReturnAir = new LabelNode();
-        
-        newInstructions.add(new VarInsnNode(Opcodes.ALOAD, 0));
-        newInstructions.add(new FieldInsnNode(Opcodes.GETFIELD, "net/minecraft/world/chunk/ChunkPrimer", "field_177860_a", "[C"));
-        
-        newInstructions.add(new VarInsnNode(Opcodes.ILOAD, 1));
-        newInstructions.add(new VarInsnNode(Opcodes.ILOAD, 2));
-        newInstructions.add(new LdcInsnNode(-HeightConfig.MIN_HEIGHT));
-        newInstructions.add(new InsnNode(Opcodes.IADD));
-        newInstructions.add(new VarInsnNode(Opcodes.ILOAD, 3));
-        newInstructions.add(new LdcInsnNode(HeightConfig.TOTAL_HEIGHT));
-        newInstructions.add(new InsnNode(Opcodes.IMUL));
-        newInstructions.add(new InsnNode(Opcodes.IADD));
-        newInstructions.add(new LdcInsnNode(16));
-        newInstructions.add(new InsnNode(Opcodes.IMUL));
-        newInstructions.add(new InsnNode(Opcodes.IADD));
-        
-        newInstructions.add(new InsnNode(Opcodes.CALOAD));
-        newInstructions.add(new VarInsnNode(Opcodes.ISTORE, 4));
-        
-        newInstructions.add(new VarInsnNode(Opcodes.ILOAD, 4));
-        newInstructions.add(new JumpInsnNode(Opcodes.IFNE, labelValid));
-        
-        newInstructions.add(new FieldInsnNode(Opcodes.GETSTATIC, "net/minecraft/init/Blocks", "field_150350_a", "Lnet/minecraft/block/Block;"));
-        newInstructions.add(new InsnNode(Opcodes.ARETURN));
-        
-        newInstructions.add(labelValid);
-        newInstructions.add(new VarInsnNode(Opcodes.ILOAD, 4));
-        newInstructions.add(new MethodInsnNode(Opcodes.INVOKESTATIC, "net/minecraft/block/Block", "func_176220_d", "(I)Lnet/minecraft/block/state/IBlockState;", false));
-        newInstructions.add(new InsnNode(Opcodes.ARETURN));
-        
-        method.instructions.clear();
-        method.instructions.add(newInstructions);
+    private String findBlocksFieldName(ClassNode classNode) {
+        for (FieldNode field : classNode.fields) {
+            if (field.desc.equals("[C")) {
+                return field.name;
+            }
+        }
+        return BLOCKS_FIELD_SRG;
     }
     
-    private void transformSetBlockState(MethodNode method) {
-        InsnList newInstructions = new InsnList();
+    private void transformGetBlockState(MethodNode method, ClassNode classNode) {
+        String blocksFieldName = findBlocksFieldName(classNode);
         
-        newInstructions.add(new VarInsnNode(Opcodes.ALOAD, 0));
-        newInstructions.add(new FieldInsnNode(Opcodes.GETFIELD, "net/minecraft/world/chunk/ChunkPrimer", "field_177860_a", "[C"));
+        AbstractInsnNode[] insns = method.instructions.toArray();
+        for (AbstractInsnNode insn : insns) {
+            if (insn.getOpcode() == Opcodes.SIPUSH) {
+                IntInsnNode intInsn = (IntInsnNode) insn;
+                if (intInsn.operand == 256) {
+                    intInsn.operand = HeightConfig.TOTAL_HEIGHT;
+                }
+            }
+            
+            if (insn.getOpcode() == Opcodes.BIPUSH) {
+                IntInsnNode intInsn = (IntInsnNode) insn;
+                if (intInsn.operand == 16) {
+                    intInsn.operand = HeightConfig.CUBE_SIZE;
+                }
+            }
+        }
+    }
+    
+    private void transformSetBlockState(MethodNode method, ClassNode classNode) {
+        String blocksFieldName = findBlocksFieldName(classNode);
         
-        newInstructions.add(new VarInsnNode(Opcodes.ILOAD, 1));
-        newInstructions.add(new VarInsnNode(Opcodes.ILOAD, 2));
-        newInstructions.add(new LdcInsnNode(-HeightConfig.MIN_HEIGHT));
-        newInstructions.add(new InsnNode(Opcodes.IADD));
-        newInstructions.add(new VarInsnNode(Opcodes.ILOAD, 3));
-        newInstructions.add(new LdcInsnNode(HeightConfig.TOTAL_HEIGHT));
-        newInstructions.add(new InsnNode(Opcodes.IMUL));
-        newInstructions.add(new InsnNode(Opcodes.IADD));
-        newInstructions.add(new LdcInsnNode(16));
-        newInstructions.add(new InsnNode(Opcodes.IMUL));
-        newInstructions.add(new InsnNode(Opcodes.IADD));
-        
-        newInstructions.add(new VarInsnNode(Opcodes.ALOAD, 4));
-        newInstructions.add(new MethodInsnNode(Opcodes.INVOKESTATIC, "net/minecraft/block/Block", "func_176201_c", "(Lnet/minecraft/block/state/IBlockState;)I", false));
-        newInstructions.add(new InsnNode(Opcodes.I2C));
-        newInstructions.add(new InsnNode(Opcodes.CASTORE));
-        
-        newInstructions.add(new InsnNode(Opcodes.RETURN));
-        
-        method.instructions.clear();
-        method.instructions.add(newInstructions);
+        AbstractInsnNode[] insns = method.instructions.toArray();
+        for (AbstractInsnNode insn : insns) {
+            if (insn.getOpcode() == Opcodes.SIPUSH) {
+                IntInsnNode intInsn = (IntInsnNode) insn;
+                if (intInsn.operand == 256) {
+                    intInsn.operand = HeightConfig.TOTAL_HEIGHT;
+                }
+            }
+            
+            if (insn.getOpcode() == Opcodes.BIPUSH) {
+                IntInsnNode intInsn = (IntInsnNode) insn;
+                if (intInsn.operand == 16) {
+                    intInsn.operand = HeightConfig.CUBE_SIZE;
+                }
+            }
+        }
     }
     
     private void transformFindGroundBlockIdx(MethodNode method) {

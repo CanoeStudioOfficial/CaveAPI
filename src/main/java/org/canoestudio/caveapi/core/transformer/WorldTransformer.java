@@ -10,19 +10,13 @@ import org.objectweb.asm.tree.*;
 public class WorldTransformer implements IClassTransformer {
 
     private static final String WORLD_CLASS = "net.minecraft.world.World";
-    private static final String WORLD_SRG = "amu";
     
     private static final String IS_OUTSIDE_BUILD_HEIGHT_SRG = "func_175701_a";
     private static final String GET_LIGHT_SRG = "func_175671_l";
     private static final String GET_LIGHT_FOR_SRG = "func_175699_k";
-    private static final String IS_AREA_LOADED_SRG = "func_175703_a";
-    private static final String IS_BLOCK_LOADED_SRG = "func_175667_e";
     private static final String GET_ACTUAL_HEIGHT_SRG = "func_72800_K";
     private static final String CAN_SNOW_AT_SRG = "func_175670_a";
     private static final String CAN_BLOCK_FREEZE_SRG = "func_175665_U";
-    private static final String GET_HEIGHT_SRG = "func_72800_K";
-    
-    private static final String BLOCK_POS = "net/minecraft/util/math/BlockPos";
 
     @Override
     public byte[] transform(String name, String transformedName, byte[] basicClass) {
@@ -72,31 +66,24 @@ public class WorldTransformer implements IClassTransformer {
     }
     
     private void transformIsOutsideBuildHeight(MethodNode method) {
-        InsnList newInstructions = new InsnList();
-        LabelNode labelTrue = new LabelNode();
-        LabelNode labelFalse = new LabelNode();
-        
-        newInstructions.add(new VarInsnNode(Opcodes.ALOAD, 1));
-        newInstructions.add(new MethodInsnNode(Opcodes.INVOKEVIRTUAL, BLOCK_POS, "func_177956_o", "()I", false));
-        newInstructions.add(new LdcInsnNode(HeightConfig.MAX_HEIGHT));
-        newInstructions.add(new JumpInsnNode(Opcodes.IF_ICMPGE, labelTrue));
-        
-        newInstructions.add(new VarInsnNode(Opcodes.ALOAD, 1));
-        newInstructions.add(new MethodInsnNode(Opcodes.INVOKEVIRTUAL, BLOCK_POS, "func_177956_o", "()I", false));
-        newInstructions.add(new LdcInsnNode(HeightConfig.MIN_HEIGHT));
-        newInstructions.add(new JumpInsnNode(Opcodes.IF_ICMPLT, labelTrue));
-        
-        newInstructions.add(new InsnNode(Opcodes.ICONST_0));
-        newInstructions.add(new JumpInsnNode(Opcodes.GOTO, labelFalse));
-        
-        newInstructions.add(labelTrue);
-        newInstructions.add(new InsnNode(Opcodes.ICONST_1));
-        
-        newInstructions.add(labelFalse);
-        newInstructions.add(new InsnNode(Opcodes.IRETURN));
-        
-        method.instructions.clear();
-        method.instructions.add(newInstructions);
+        AbstractInsnNode[] insns = method.instructions.toArray();
+        for (int i = 0; i < insns.length; i++) {
+            AbstractInsnNode insn = insns[i];
+            
+            if (insn.getOpcode() == Opcodes.SIPUSH) {
+                IntInsnNode intInsn = (IntInsnNode) insn;
+                if (intInsn.operand == 256) {
+                    intInsn.operand = HeightConfig.MAX_HEIGHT;
+                }
+            }
+            
+            if (insn.getOpcode() == Opcodes.ICONST_0) {
+                AbstractInsnNode next = insn.getNext();
+                if (next != null && next.getOpcode() == Opcodes.IF_ICMPLT) {
+                    method.instructions.set(insn, new LdcInsnNode(HeightConfig.MIN_HEIGHT));
+                }
+            }
+        }
     }
     
     private void transformGetLight(MethodNode method) {
@@ -105,10 +92,10 @@ public class WorldTransformer implements IClassTransformer {
             if (insn.getOpcode() == Opcodes.SIPUSH) {
                 IntInsnNode intInsn = (IntInsnNode) insn;
                 if (intInsn.operand == 256) {
-                    method.instructions.set(insn, new LdcInsnNode(HeightConfig.MAX_HEIGHT));
+                    intInsn.operand = HeightConfig.MAX_HEIGHT;
                 }
                 if (intInsn.operand == 255) {
-                    method.instructions.set(insn, new LdcInsnNode(HeightConfig.MAX_HEIGHT - 1));
+                    intInsn.operand = HeightConfig.MAX_HEIGHT - 1;
                 }
             }
             
@@ -127,7 +114,7 @@ public class WorldTransformer implements IClassTransformer {
             if (insn.getOpcode() == Opcodes.SIPUSH) {
                 IntInsnNode intInsn = (IntInsnNode) insn;
                 if (intInsn.operand == 256) {
-                    method.instructions.set(insn, new LdcInsnNode(HeightConfig.MAX_HEIGHT));
+                    intInsn.operand = HeightConfig.MAX_HEIGHT;
                 }
             }
             
@@ -141,12 +128,15 @@ public class WorldTransformer implements IClassTransformer {
     }
     
     private void transformGetActualHeight(MethodNode method) {
-        InsnList newInstructions = new InsnList();
-        newInstructions.add(new LdcInsnNode(HeightConfig.TOTAL_HEIGHT));
-        newInstructions.add(new InsnNode(Opcodes.IRETURN));
-        
-        method.instructions.clear();
-        method.instructions.add(newInstructions);
+        AbstractInsnNode[] insns = method.instructions.toArray();
+        for (AbstractInsnNode insn : insns) {
+            if (insn.getOpcode() == Opcodes.SIPUSH) {
+                IntInsnNode intInsn = (IntInsnNode) insn;
+                if (intInsn.operand == 256) {
+                    intInsn.operand = HeightConfig.TOTAL_HEIGHT;
+                }
+            }
+        }
     }
     
     private void transformCanSnowAt(MethodNode method) {
@@ -155,7 +145,7 @@ public class WorldTransformer implements IClassTransformer {
             if (insn.getOpcode() == Opcodes.SIPUSH) {
                 IntInsnNode intInsn = (IntInsnNode) insn;
                 if (intInsn.operand == 256) {
-                    method.instructions.set(insn, new LdcInsnNode(HeightConfig.MAX_HEIGHT));
+                    intInsn.operand = HeightConfig.MAX_HEIGHT;
                 }
             }
         }
@@ -167,7 +157,7 @@ public class WorldTransformer implements IClassTransformer {
             if (insn.getOpcode() == Opcodes.SIPUSH) {
                 IntInsnNode intInsn = (IntInsnNode) insn;
                 if (intInsn.operand == 256) {
-                    method.instructions.set(insn, new LdcInsnNode(HeightConfig.MAX_HEIGHT));
+                    intInsn.operand = HeightConfig.MAX_HEIGHT;
                 }
             }
         }
@@ -179,7 +169,7 @@ public class WorldTransformer implements IClassTransformer {
             if (insn.getOpcode() == Opcodes.SIPUSH) {
                 IntInsnNode intInsn = (IntInsnNode) insn;
                 if (intInsn.operand == 256) {
-                    method.instructions.set(insn, new LdcInsnNode(HeightConfig.MAX_HEIGHT));
+                    intInsn.operand = HeightConfig.MAX_HEIGHT;
                 }
             }
             
@@ -198,7 +188,7 @@ public class WorldTransformer implements IClassTransformer {
             if (insn.getOpcode() == Opcodes.SIPUSH) {
                 IntInsnNode intInsn = (IntInsnNode) insn;
                 if (intInsn.operand == 256) {
-                    method.instructions.set(insn, new LdcInsnNode(HeightConfig.MAX_HEIGHT));
+                    intInsn.operand = HeightConfig.MAX_HEIGHT;
                 }
             }
             
